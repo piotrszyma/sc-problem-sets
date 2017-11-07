@@ -1,0 +1,18 @@
+\section{Zadanie 5}
+\subsection{Opis problemu}
+Równanie rekurencyjne (model logistyczny, model wzrostu populacji)
+$$ p_{n+1} := p_n + rp_n(1 - p_n)\; dla\; n = 0, 1, 2,\ldots$$
+
+Zadanie polegało na przeprowadzeniu następującego eksperymentu:
+\begin{enumerate}[label=(\alph*)]
+  \item Dla danych $ p_0 = 0.01 $ oraz $ r = 3 $ wykonać 40 iteracji w/w wyrażenia (1), następnie 40 iteracji z modyfikacją - po 10 iteracji obciąć wynik (2), odrzucając cyfry po 3 miejscu po przecinku. Obliczenia wykonać w arytmetyce $ \mathtt{Float32} $. Porównać wyniki.
+  \item Porównać wyliczanie 40 iteracji dla arytmetyk $ \mathtt{Float32} $ oraz $ \mathtt{Float64} $.
+\end{enumerate}
+\subsection{Rozwiązanie}
+W celu wyliczenia zadanych rekurencji stworzyłem program w Julii. Wyniki obliczeń przedstawiłem w tabeli poniżej.
+\subsection{Wynik}
+\begin{center}
+  \input{../source/task-5/solutions.tex}  
+\end{center}
+
+ANALIZA WYNIKU

@@ -1,0 +1,14 @@
+\section{Zadanie 3}
+\subsection{Opis problemu}
+Rozwiązać układy równań podane w specyfikacji zadania za pomocą dwóch algorytmów: eliminacji Gaussa ($ \mathtt{x=A/b} $) oraz $ x = A^{-1}b\; (\mathtt{x=inv(A)*b}) $. Eksperymenty wykonać dla macierzy Hilberta $\mathbf{H_n}$ z rosnącym stopniem n > 1 oraz dla macierzy losowej $R_n$, n = 5, 10, 20 z rosnącym wskaźnikiem uwarunkowania $ c = 10, 10^3, 10^7, 10^{12}, 10^{16} $. Porównać obliczony $\tilde{x}$ z rozwiązaniem dokładnym $ x = (1, . . . , 1)T $, tj. policzyć błędy względne. \\ \\
+W języku Julia za pomocą funkcji $ \mathtt{cond(A)} $ można sprawdzić jaki jest wskaźnik uwarunkowania wygenerowanej macierzy. Natomiast za pomocą funkcji $ \mathtt{rank(A)} $ można sprawdzić jaki jest rząd macierzy.
+\subsection{Rozwiązanie}
+W celu wykonania podanych w treści zadania obliczeń, stworzyłem w języku Julia odpowiednie funkcje. Błędy względne obliczeń wyliczyłem przy pomocy normy wektora wg. wzoru:
+$$ \delta = \frac{|| \widetilde{x} - x ||}{||x||} $$
+Poniżej przedstawiłem tabelę - zestawienie wyników.
+\subsection{Wynik}
+\begin{center}
+\input{../source/task-3/solutions.tex}
+\end{center}
+
+ANALIZA WYNIKU

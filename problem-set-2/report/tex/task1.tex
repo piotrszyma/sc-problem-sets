@@ -1,0 +1,13 @@
+\section{Zadanie 1}
+\subsection{Opis problemu}
+Powtórz zadanie 5 z listy 1, ale usuń ostatnią 9 z $ x_4 $ i ostatnią 7 z $ x_5 $. Jaki wpływ na
+wyniki mają niewielkie zmiany danych?
+\subsection{Rozwiązanie}
+Uruchomiłem program z pierwszej listy po dokonaniu modyfikacji wejścia. Wyniki zestawiłem w tabeli poniżej. Numeracja algorytmów to odpowiednio 1, 2 - algorytmy sumowania odpowiednio w górę i w dół, 3, 4 - sumy częściowe.
+\subsection{Wynik}
+\begin{center}
+\input{../source/task-1/solutions.tex}
+\end{center}
+W przypadku arytmetyki Float64 lekka zmiana wektorów przyczyniła się do zmiany ostatecznego wyniku - wciąż znacznie odbiegajacego od realnych wartości. Dla arytmetyki Float32 usunięcie ostatnich cyfr nie miało wpływu na ostateczny wynik, gdyż arytmetyka nie jest wystarczająco dokładna.
+
+ANALIZA WYNIKU

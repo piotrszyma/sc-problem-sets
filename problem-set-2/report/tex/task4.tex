@@ -1,0 +1,17 @@
+\section{Zadanie 4}
+\subsection{Opis problemu}
+,,Złośliwy wielomian'' Wilkinsona. Zainstalować pakiet $ \mathtt{Polynomials} $.
+\begin{enumerate}[label=(\alph*)]
+  \item Użyć funkcji $ \mathtt{roots} $ z pakietu $ \mathtt{Polynomials} $ do obliczenia 20 zer wielomianu P zadanego w treści zadania. Sprawdzić obliczone pierwiastki $ z_k, 1 \leq k \leq 20 $, obliczając $|P(z_k)|$, $|p(z_k)|$ i $|z_k - k|$. Wyjaśnić rozbieżność. \\
+  Zapoznać się z funkcjami $ \mathtt{Poly},\; \mathtt{poly},\; \mathtt{polyval}$ z pakietu $ \mathtt{Polynomials} $.
+  \item Powtórzyć eksperyment Wilkinsona, tj. zmienić współczynnik $-210$ na $ -210-2^{-23}$. Wyjaśnić zjawisko.
+\end{enumerate}
+\subsection{Rozwiązanie}
+Funkcja $ \mathtt{Poly(x)} $ generuje wielomian w zależności od współczynników podanych jako parametr.
+Funkcja $ \mathtt{poly(x)} $ tworzy wielomian na podstawie pierwiastków wielomianu, natomiast funkcja $ \mathtt{polyval(p, x)} $ pozwala na wyliczenie wartości wielomianu $ \mathtt{p} $ dla zadanego argumentu $ \mathtt{x} $.
+\subsection{Wynik}
+\begin{center}
+  \input{../source/task-4/solutions.tex}
+\end{center}
+
+ANALIZA WYNIKU
