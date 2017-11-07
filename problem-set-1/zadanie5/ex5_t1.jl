@@ -202,7 +202,7 @@ sum = p_pos_sum + p_neg_sum
 @printf "Sum pos desc neg asc:\t%15e\n" sum
 
 
-# D) sorted descending
+# D) sorted ascending
 
 #partial sums
 
