@@ -3,12 +3,13 @@
 Rozwiązać układy równań podane w specyfikacji zadania za pomocą dwóch algorytmów: eliminacji Gaussa ($ \mathtt{x=A/b} $) oraz $ x = A^{-1}b\; (\mathtt{x=inv(A)*b}) $. Eksperymenty wykonać dla macierzy Hilberta $\mathbf{H_n}$ z rosnącym stopniem n > 1 oraz dla macierzy losowej $R_n$, n = 5, 10, 20 z rosnącym wskaźnikiem uwarunkowania $ c = 10, 10^3, 10^7, 10^{12}, 10^{16} $. Porównać obliczony $\tilde{x}$ z rozwiązaniem dokładnym $ x = (1, . . . , 1)T $, tj. policzyć błędy względne. \\ \\
 W języku Julia za pomocą funkcji $ \mathtt{cond(A)} $ można sprawdzić jaki jest wskaźnik uwarunkowania wygenerowanej macierzy. Natomiast za pomocą funkcji $ \mathtt{rank(A)} $ można sprawdzić jaki jest rząd macierzy.
 \subsection{Rozwiązanie}
-W celu wykonania podanych w treści zadania obliczeń, stworzyłem w języku Julia odpowiednie funkcje. Błędy względne obliczeń wyliczyłem przy pomocy normy wektora wg. wzoru:
+W celu wykonania podanych w treści zadania obliczeń, stworzyłem w języku Julia odpowiednie funkcje. Kody źródłowe programów dołączyłem do sprawozdania. Błędy względne obliczeń wyliczyłem przy pomocy normy wektora wg. wzoru:
 $$ \delta = \frac{|| \widetilde{x} - x ||}{||x||} $$
-Poniżej przedstawiłem tabelę - zestawienie wyników.
 \subsection{Wynik}
+Poniżej przedstawiłem tabelę - zestawienie wyników w postaci wyliczonych błędów względnych. \\\\
+Macierz Hilberta jest postaci $ h_{ij} = \frac{1}{i + j - 1}$. Jak widać, wiele z komórek macierzy nie da się zapisać w postaci skończonej w reprezentacji biarnej, np. $ \frac{1}{3}, \frac{1}{6} $. Macierz Hilberta jest macierzą źle uwarunkowaną - wykonując obliczenia z jej użyciem jesteśmy narażeni na duży wpływ błędu wynikajacego z reprezentacji numerycznej, dlatego rozwiązywanie w numeryczny sposób nawet małych układów równań z wykorzystaniem macierzy Hilberta jest niemożliwe. \\
+W przypadku macierzy losowych zaobserwowałem, że błąd bezwzględny nie rośnie tak drastycznie, jak w przypadku macierzy Hilberta. W tym wypadku błąd oscylował w granicach $ 10^{-16} $.
 \begin{center}
 \input{../source/task-3/solutions.tex}
 \end{center}
 
-ANALIZA WYNIKU

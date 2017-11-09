@@ -13,43 +13,37 @@ function evaluate(p_val, c_factor, iter_number)
 end
 o = Array[]
 push!(o, evaluate(1, -2, 40))
+push!(o, evaluate(2, -2, 40))
 push!(o, evaluate(1.99999999999999, -2, 40))
-push!(o, evaluate(1, -2, 40))
 push!(o, evaluate(1, -1, 40))
 push!(o, evaluate(-1, -1, 40))
 push!(o, evaluate(0.75, -1, 40))
 push!(o, evaluate(0.25, -1, 40))
 
-println(o)
+println("\$\$")
+println("\\begin{array}{c|c|c|c|c}")
+println("\^{algorytm}/_{iteracja} & 1 & 2 & 4 & 5\\\\")
+println("\\hline")
 
+for i in 1:40
+  if i == 1 || i == 2 || i == 3 || i == 4 || i % 5 == 0
+    @printf "%d & %.9f & %.9f & %.9f & %.9f \\\\\n" i o[1][i] o[2][i] o[4][i] o[5][i]
+  end
+end
 
+println("\\end{array}")
+println("\$\$")
 
-# println("Wyniki (a)")
-# println("\$\$")
-# println("\\begin{array}{c|c|c}")
-# println("n & (1) & (2)\\\\")
-# println("\\hline")
+println("\$\$")
+println("\\begin{array}{c|c|c|c}")
+println("\^{algorytm}/_{iteracja} & 3 & 6 & 7\\\\")
+println("\\hline")
 
-# for i in 1:40
-#   if i == 1 || i == 2 || i == 3 || i == 4 || i % 5 == 0
-#     @printf "%d & %.15f & %.15f\\\\\n" i f32[i] f32_tr[i]
-#   end
-# end
+for i in 1:40
+  if i == 1 || i == 2 || i == 3 || i == 4 || i % 5 == 0
+    @printf "%d & %.10f & %.10f & %.10f \\\\\n" i o[3][i] o[6][i] o[7][i]
+  end
+end
 
-# println("\\end{array}")
-# println("\$\$")
-
-# println("Wyniki (b)")
-# println("\$\$")
-# println("\\begin{array}{c|c|c}")
-# println("n & Float32 & Float64\\\\")
-# println("\\hline")
-
-# for i in 1:40
-#   if i == 1 || i == 2 || i == 3 || i == 4 || i % 5 == 0
-#     @printf "%d & %.15f & %.15f\\\\\n" i f32[i] f64[i]
-#   end
-# end
-
-# println("\\end{array}")
-# println("\$\$")
+println("\\end{array}")
+println("\$\$")

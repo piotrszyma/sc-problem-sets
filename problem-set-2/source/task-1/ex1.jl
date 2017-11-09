@@ -109,18 +109,20 @@ vec_y = [1486.2497, 878366.9879,(-1.0) * 22.37492, 4773714.647, 0.000185049]
 
 vec_x_2 = [2.718281828,(-1.0) * 3.141592654, 1.414213562, 0.577215664, 0.301029995]
 
+PROPER = -1.00657107000000 * 10.0 ^ (-11)
+
 # a) "forward"
 
 n_type = Float64
 println("\\subsubsection*{Float64}")
 println("\$\$")
-println("\\begin{array}{c|c|c}")
-println("algorytm & przed & po\\\\")
+println("\\begin{array}{c|c|c|c|c}")
+println("algorytm & przed & \\sigma & po & \\sigma\\\\")
 println("\\hline")
-@printf "1 & %15e & %15e \\\\\n" sumForward(vec_x, vec_y, n_type) sumForward(vec_x_2, vec_y, n_type)
-@printf "2 & %15e & %15e \\\\\n" sumBackward(vec_x, vec_y, n_type) sumBackward(vec_x_2, vec_y, n_type)
-@printf "3 & %15e & %15e \\\\\n" sortedDescending(vec_x, vec_y, n_type) sortedDescending(vec_x_2, vec_y, n_type)
-@printf "4 & %15e & %15e \\\\\n" sortedAscending(vec_x, vec_y, n_type) sortedAscending(vec_x_2, vec_y, n_type)
+@printf "1 & %.10e & %.10e & %.10e & %.10e \\\\\n" sumForward(vec_x, vec_y, n_type) abs(sumForward(vec_x, vec_y, n_type) - PROPER)/PROPER sumForward(vec_x_2, vec_y, n_type) abs(sumForward(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "2 & %.10e & %.10e & %.10e & %.10e \\\\\n" sumBackward(vec_x, vec_y, n_type) abs(sumBackward(vec_x, vec_y, n_type) - PROPER)/PROPER sumBackward(vec_x_2, vec_y, n_type) abs(sumBackward(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "3 & %.10e & %.10e & %.10e & %.10e \\\\\n" sortedDescending(vec_x, vec_y, n_type) abs(sortedDescending(vec_x, vec_y, n_type) - PROPER)/PROPER sortedDescending(vec_x_2, vec_y, n_type) abs(sortedDescending(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "4 & %.10e & %.10e & %.10e & %.10e \\\\\n" sortedAscending(vec_x, vec_y, n_type) abs(sortedAscending(vec_x, vec_y, n_type) - PROPER)/PROPER sortedAscending(vec_x_2, vec_y, n_type) abs(sortedAscending(vec_x_2, vec_y, n_type) - PROPER)/PROPER
 println("\\end{array}")
 println("\$\$")
 
@@ -132,12 +134,12 @@ n_type = Float32
 
 println("\\subsubsection*{Float32}")
 println("\$\$")
-println("\\begin{array}{c|c|c}")
-println("algorytm & przed & po\\\\")
+println("\\begin{array}{c|c|c|c|c}")
+println("algorytm & przed & \\sigma & po & \\sigma\\\\")
 println("\\hline")
-@printf "1 & %15e & %15e \\\\\n" sumForward(vec_x, vec_y, n_type) sumForward(vec_x_2, vec_y, n_type)
-@printf "2 & %15e & %15e \\\\\n" sumBackward(vec_x, vec_y, n_type) sumBackward(vec_x_2, vec_y, n_type)
-@printf "3 & %15e & %15e \\\\\n" sortedDescending(vec_x, vec_y, n_type) sortedDescending(vec_x_2, vec_y, n_type)
-@printf "4 & %15e & %15e \\\\\n" sortedAscending(vec_x, vec_y, n_type) sortedAscending(vec_x_2, vec_y, n_type)
+@printf "1 & %.10e & %.10e & %.10e & %.10e \\\\\n" sumForward(vec_x, vec_y, n_type) abs(sumForward(vec_x, vec_y, n_type) - PROPER)/PROPER sumForward(vec_x_2, vec_y, n_type) abs(sumForward(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "2 & %.10e & %.10e & %.10e & %.10e \\\\\n" sumBackward(vec_x, vec_y, n_type) abs(sumBackward(vec_x, vec_y, n_type) - PROPER)/PROPER sumBackward(vec_x_2, vec_y, n_type) abs(sumBackward(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "3 & %.10e & %.10e & %.10e & %.10e \\\\\n" sortedDescending(vec_x, vec_y, n_type) abs(sortedDescending(vec_x, vec_y, n_type) - PROPER)/PROPER sortedDescending(vec_x_2, vec_y, n_type) abs(sortedDescending(vec_x_2, vec_y, n_type) - PROPER)/PROPER
+@printf "4 & %.10e & %.10e & %.10e & %.10e \\\\\n" sortedAscending(vec_x, vec_y, n_type) abs(sortedAscending(vec_x, vec_y, n_type) - PROPER)/PROPER sortedAscending(vec_x_2, vec_y, n_type) abs(sortedAscending(vec_x_2, vec_y, n_type) - PROPER)/PROPER
 println("\\end{array}")
 println("\$\$")

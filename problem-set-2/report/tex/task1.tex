@@ -3,11 +3,13 @@
 Powtórz zadanie 5 z listy 1, ale usuń ostatnią 9 z $ x_4 $ i ostatnią 7 z $ x_5 $. Jaki wpływ na
 wyniki mają niewielkie zmiany danych?
 \subsection{Rozwiązanie}
-Uruchomiłem program z pierwszej listy po dokonaniu modyfikacji wejścia. Wyniki zestawiłem w tabeli poniżej. Numeracja algorytmów to odpowiednio 1, 2 - algorytmy sumowania odpowiednio w górę i w dół, 3, 4 - sumy częściowe.
+Uruchomiłem program z pierwszej listy po dokonaniu modyfikacji wejścia. Wyniki zestawiłem w tabeli poniżej. Numeracja algorytmów to odpowiednio 1, 2 - algorytmy sumowania odpowiednio w górę i w dół, 3, 4 - sumy częściowe. Kody źródłowe zostały dołączone do sprawozdania.
 \subsection{Wynik}
-\begin{center}
-\input{../source/task-1/solutions.tex}
-\end{center}
-W przypadku arytmetyki Float64 lekka zmiana wektorów przyczyniła się do zmiany ostatecznego wyniku - wciąż znacznie odbiegajacego od realnych wartości. Dla arytmetyki Float32 usunięcie ostatnich cyfr nie miało wpływu na ostateczny wynik, gdyż arytmetyka nie jest wystarczająco dokładna.
+W przypadku arytmetyki Float64 lekka zmiana wektorów przyczyniła się do zmiany ostatecznego wyniku - wciąż znacznie odbiegajacego od realnych wartości. Dla arytmetyki Float32 usunięcie ostatnich cyfr nie miało wpływu na ostateczny wynik, gdyż arytmetyka nie jest wystarczająco dokładna. \\\\
+Liczby pojedynczej precyzji pozwalają na zapisanie do 7 cyfr znaczących w reprezentacji dziesiętnej. Zmiana w zadaniu dotyczyła cyfr na pozycji 10, dlatego nie doprowadziło to do zmiany.\\\\
+Float64 natomiast daje większą dokładność, dlatego zmiana miała wpływ na wynik. Zmniejszenie dokładności składowych wektora pozwoliło na bliższe sobie wyniki obliczeń każdego z algorytmów do 9 miejsca po przecinku. Od 10 cyfry natomiast wyniki zaczęły się rozbiegać. \\\\
+Poniżej przedstawiłem tabelę z wynikami obliczeń.
 
-ANALIZA WYNIKU
+\begin{center}
+  \input{../source/task-1/solutions.tex}
+  \end{center}

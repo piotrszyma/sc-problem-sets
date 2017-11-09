@@ -2,13 +2,23 @@
 \subsection{Opis problemu}
 Dla zadanego równania rekurencyjnego przeprowadź serię eksperymentów.
 $$ x_{n+1} = x_{n,2} + c\; dla\; n = 0, 1, 2,\ldots$$
-Wykonać w arytmetyce $ \mathtt{Float64} $ 40 iteracji wyrażenia dla 7 zestawów danych podanych w treści zadania.
-
+Wykonać w arytmetyce $ \mathtt{Float64} $ 40 iteracji wyrażenia dla 7 zestawów danych:
+\begin{enumerate}
+  \item $ c = -2 \;i\; x_0 = 1 $
+  \item $ c = -2 \;i\; x_0 = 2 $
+  \item $ c = -2 \;i\; x_0 = 1.99999999999999 $
+  \item $ c = -1 \;i\; x_0 = 1 $
+  \item $ c = -1 \;i\; x_0 = -1 $
+  \item $ c = -1 \;i\; x_0 = 0.75 $
+  \item $ c = -1 \;i\; x_0 = 0.25 $
+\end{enumerate}
 \subsection{Rozwiązanie}
-W celu wyliczenia zadanych rekurencji stworzyłem program w Julii. Wyniki obliczeń przedstawiłem w tabeli poniżej.
+W celu wyliczenia zadanych rekurencji stworzyłem program w Julii, którego kod źródłowy dołączyłem do sprawozdania. Wyniki obliczeń przedstawiłem w tabeli poniżej.
 \subsection{Wynik}
 \begin{center}
   \input{../source/task-6/solutions.tex}  
 \end{center}
+
+W przypadku pierwszego zestawu danych, tj. $ x_0 = 1 $ i $c = -2 $, wyniki obliczeń pokrywają się z przewidywaniami. Każda iteracja zwraca $ -1 $. Drugi zestaw również nie przynosi zaskoczenia - każdy wynik wynosi $ -2 $. W trzecim zestawie danych błędy zaczynają pojawiać się na wysokości 15 iteracji.
 
 ANALIZA WYNIKU

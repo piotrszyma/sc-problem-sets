@@ -7,7 +7,8 @@ wykres funkcji z policzoną granicą. Wyjaśnić zjawisko.
 Oto granica funkcji $ f(x) $:
 $$ \lim_{x \to \infty} e^x \ln (1 + e^{-x}) = 1$$
 \subsection{Wynik}
-Wykresy wygenerowane za pomocą dwóch programów do wizualzacji załączone są na Rysunkach 1 i 2.
+Wykresy wygenerowane za pomocą dwóch programów do wizualzacji załączone są na Rysunkach 1 i 2. Kody źródłowe programów dołączyłem do sprawozdania w osobnych plikach. \\\\
+Jak widać na wykresach, w pewnym momencie funkcja zaczyna przyjmować nieoczekiwane - błędne - wartości. Głównym czynnikiem wpływającym na takie zachowanie jest operacja mnożenia bardzo dużej liczby $ e^x $ przez bardzo małą liczbę $ \ln(1 + e ^{-x}) $, bo $ \lim_{x \to \infty} \ln (1 + e^{-x}) = 0$.
 \begin{figure}[!htbp]
   \centering  
   \includegraphics[totalheight=7cm]{../source/task-2/matplotlib.png}
@@ -15,5 +16,3 @@ Wykresy wygenerowane za pomocą dwóch programów do wizualzacji załączone są
   \includegraphics[totalheight=6cm]{../source/task-2/juliaplot.png}
   \caption{Wykres wygenerowany za pomocą biblioteki Plot w języku Julia}
 \end{figure}
-
-ANALIZA WYNIKU

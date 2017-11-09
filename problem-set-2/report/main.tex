@@ -7,7 +7,15 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
-
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={170mm,257mm},
+left=15mm,
+right=15mm,
+top=30mm,
+bottom=30mm
+}
 \title{Obliczenia Naukowe Lista 2 Laboratoria}
 \date{1 listopada 2017}
 \author{Piotr Szyma}
@@ -19,9 +27,16 @@
     \newpage
     \pagenumbering{arabic}
     \input{./tex/task1.tex}
+    \newpage    
     \input{./tex/task2.tex}
+    \newpage
+    
     \input{./tex/task3.tex}
     \input{./tex/task4.tex}
+    \newpage
+    
     \input{./tex/task5.tex}
+    \newpage
+    
     \input{./tex/task6.tex}
 \end{document}
