@@ -1,7 +1,7 @@
 \section{Zadanie 6}
 \subsection{Opis problemu}
 Dla zadanego równania rekurencyjnego przeprowadź serię eksperymentów.
-$$ x_{n+1} = x_{n,2} + c\; dla\; n = 0, 1, 2,\ldots$$
+$$ x_{n+1} = x_{n}^2 + c\; dla\; n = 0, 1, 2,\ldots$$
 Wykonać w arytmetyce $ \mathtt{Float64} $ 40 iteracji wyrażenia dla 7 zestawów danych:
 \begin{enumerate}
   \item $ c = -2 \;i\; x_0 = 1 $
@@ -15,10 +15,10 @@ Wykonać w arytmetyce $ \mathtt{Float64} $ 40 iteracji wyrażenia dla 7 zestawó
 \subsection{Rozwiązanie}
 W celu wyliczenia zadanych rekurencji stworzyłem program w Julii, którego kod źródłowy dołączyłem do sprawozdania. Wyniki obliczeń przedstawiłem w tabeli poniżej.
 \subsection{Wynik}
+Spośród wszystkich zestawów danych możemy wybrać te stabilne oraz te niestabilne. \\\\
+W przypadku pierwszego zestawu danych, tj. $ x_0 = 1 $ i $ c = -2 $, wyniki obliczeń pokrywają się z przewidywaniami. Każda iteracja zwraca $ -1 $. Drugi zestaw również nie przynosi zaskoczenia - każdy wynik wynosi $ -2 $. W trzecim zestawie danych operujemy na liczbie o 14 cyfrach po przecinku - jej mnożenie generuje liczbę, która nie mieści się już w arytmetyce $ \mathtt{Float64} $ i dochodzi do przybliżenia - pojawia się błąd. Każde kolejne mnożenie powoduje kolejne przybliżenie - błąd narasta. Taki algorytm z numerycznego punktu widzenia zalicza się do grupy niestabilnych i jest niepożądany. \\\\
+Ciągi $ 4 $ oraz $ 5 $ tworzą cykl składający się z liczb całkowitych, w ich przypadku nigdy nie dojdzie do wyskoczenia poza precyzję arytmetyki. Te zestawy danych są stabilne.\\\\
+Ostatnie dwa ciągi są o tyle interesujące, że wartość, do której - z matematycznego punktu widzenia - dążą, osiągana jest już na wysokości $ ~13 $ iteracji. Wynika to z ograniczeń precyzji arytmetyki. Liczby są na tyle małe, że arytmetyka wymaga ich zaokrąglenia. \\\\
 \begin{center}
   \input{../source/task-6/solutions.tex}  
 \end{center}
-
-W przypadku pierwszego zestawu danych, tj. $ x_0 = 1 $ i $c = -2 $, wyniki obliczeń pokrywają się z przewidywaniami. Każda iteracja zwraca $ -1 $. Drugi zestaw również nie przynosi zaskoczenia - każdy wynik wynosi $ -2 $. W trzecim zestawie danych błędy zaczynają pojawiać się na wysokości 15 iteracji.
-
-ANALIZA WYNIKU

@@ -1,3 +1,6 @@
+# Program liczący rekurencję z zadania 5
+# autor Piotr Szyma
+
 function evaluate(p_val, r_factor, iter_number, T)
     results = T[]
     p::T = p_val
@@ -21,7 +24,7 @@ function evaluateWithTrunc(p_val, r_factor, iter_number, T)
 
     p = p + r_factor * p * (1 - p)
     if i == 10
-      p = trunc(p, 3)
+      @printf "\n\n\n%.15f\n\n\n" p
     end
     push!(results, p)
     

@@ -1,3 +1,6 @@
+# Zadanie dotyczące złośliwego Wielomianu Wilkinsona
+# autor Piotr Szyma
+
 using Polynomials
 
 coefficients=[1, -210.0, 20615.0,-1256850.0,
@@ -76,3 +79,7 @@ for i in 1:20
 end
 println("\\end{array}")
 println("\$\$")
+
+println("\\\\")
+println("Wartość zwracana przez funkcję \$  \\mathtt{roots()} \$ dla wielomianu z podpunktu (b) \\\\\\\\")
+println(reverse(roots(P_x)))
