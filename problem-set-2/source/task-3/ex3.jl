@@ -54,14 +54,14 @@ function computeOnHilbert(n)
     @printf "%d & %.5e & %.10e & %.10e \\\\\n" n cond(A) norm(gauss - ONES)/norm(ONES) norm(inverted - ONES)/norm(ONES)
 end
 
-function computeOnRandom(n, cond)
+function computeOnRandom(n, con)
     ONES = ones(n, 1)
-    A = matcond(n, cond)
+    A = matcond(n, 10^con)
     b = A * ONES
     gauss = A \ b
     inverted = inv(A) * b
 
-    @printf "%d & %d & %.10e & %.10e \\\\\n" n cond norm(gauss - ONES)/norm(ONES) norm(inverted - ONES)/norm(ONES)
+    @printf "%d & %d & %.10e & %.10e \\\\\n" n con norm(gauss - ONES)/norm(ONES) norm(inverted - ONES)/norm(ONES)
     
 end
 println("\\subsubsection*{Macierz Hilberta}")

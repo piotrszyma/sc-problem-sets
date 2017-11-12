@@ -16,7 +16,7 @@ Pierwszym ważnym spostrzeżeniem jest fakt, że z każdą kolejną iteracją, i
 W punkcie (a) do 10 iteracji wyniki nie różniły się od siebie. Po obcięciu cyfr znaczączych w przykładzie (2), kolejne iteracje zaczęły coraz bardziej się różnić. W 40 iteracji wynik po obcięciu różnił się od pierwotnej wersji 4 krotnie. Ta część zadania pokazuje, jak ważna jest dokładność obliczeń. Ucięcie liczby w kolejnych iteracjach doprowadza do coraz większych różnic wyniku. \\\\
 Podpunkt (b) to porównanie arytmetyk $ \mathtt{Float32} $ oraz $ \mathtt{Float64} $. Tutaj również zawodzi skończona precyzja arytmetyk. Pierwsze iteracje - w ramach dostępnych dla arytmetyk precyzji, dają poprawne wyniki. Z każdą kolejną jednak, gdy ilość miejsc po przecinku rośnie, arytmetyki ucinają cyfry i przybliżają - generując błąd. Patrząc na pierwsze iteracje - wyniki dla obydwu arytmetyk wykazują jakieś podobieństwo. 20 iteracja to ostatnia, w której widoczne jest jakiekolwiek podobieństwo. (cyfra 5 będąca pierwszą po przecinku) \\\\
 Z zadania płyną następujące wnioski: niezależnie od tego, jaką arytmetykę komputera (skończoną) obierzemy - numeryczne obliczenia prędzej czy później doprowadzą do utraty przewidywalności.
-
+\newpage
 \begin{center}
   \input{../source/task-5/solutions.tex}  
 \end{center}

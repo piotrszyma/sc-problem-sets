@@ -26,15 +26,31 @@ println("\\hline")
 for i in 1:20
   print(i)
   print(" & ")
-  print(abs(polyval(P_x, rootsOfP_x[i])))
+  @printf "%.10e" abs(polyval(P_x, rootsOfP_x[i]))
   print(" & ")
-  print(abs(polyval(p_x, rootsOfP_x[i])))
-  print(" & ")
-  print(abs(i - rootsOfP_x[i]))
+  @printf "%.10e" abs(polyval(p_x, rootsOfP_x[i]))
+  print(" & ")  
+  @printf "%.10e" abs(i - rootsOfP_x[i])
   print("\\\\\n")
 end
 println("\\end{array}")
 println("\$\$")
+
+
+println("Roots(P) (a)")
+println("\$\$")
+println("\\begin{array}{c|c}")
+println("n & pierwiastek\\\\")
+println("\\hline")
+for i in 1:20
+  print(i)
+  print(" & ")
+  print(rootsOfP_x[i])
+  print("\\\\\n")
+end
+println("\\end{array}")
+println("\$\$")
+
 
 
 coefficientsModified = [
@@ -72,14 +88,24 @@ println("\\hline")
 for i in 1:20
   print(i)
   print(" & ")
-  print(abs(polyval(P_x, rootsOfP_x[i])))
+  @printf "%.10e" abs(polyval(P_x, rootsOfP_x[i]))
   print(" & ")
-  print(abs(i - rootsOfP_x[i]))
+  @printf "%.10e" abs(i - rootsOfP_x[i])
   print("\\\\\n")
 end
 println("\\end{array}")
 println("\$\$")
 
-println("\\\\")
-println("Wartość zwracana przez funkcję \$  \\mathtt{roots()} \$ dla wielomianu z podpunktu (b) \\\\\\\\")
-println(reverse(roots(P_x)))
+println("Roots(P) (b)")
+println("\$\$")
+println("\\begin{array}{c|c}")
+println("n & pierwiastek\\\\")
+println("\\hline")
+for i in 1:20
+  print(i)
+  print(" & ")
+  print(rootsOfP_x[i])
+  print("\\\\\n")
+end
+println("\\end{array}")
+println("\$\$")

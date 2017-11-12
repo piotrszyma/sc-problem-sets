@@ -8,6 +8,8 @@ $$ \delta = \frac{|| \widetilde{x} - x ||}{||x||} $$
 \subsection{Wynik}
 W przypadku macierzy losowych zaobserwowałem, że błąd bezwzględny, niezależnie od stopnia macierzy, oscyluje w granicach $ 10^{-16} $. Zupełnie inaczej wyglądało to w przypadku macierzy Hilberta. \\\\
 Macierz Hilberta jest postaci $ h_{ij} = \frac{1}{i + j - 1}$. Jak widać, wiele z komórek macierzy nie da się zapisać w postaci skończonej w reprezentacji biarnej, np. $ \frac{1}{3}, \frac{1}{6} $. Macierz Hilberta jest macierzą źle uwarunkowaną - wykonując obliczenia z jej użyciem jesteśmy narażeni na duży wpływ błędu wynikajacego z reprezentacji numerycznej, dlatego rozwiązywanie w numeryczny sposób nawet małych układów równań z wykorzystaniem macierzy Hilberta jest niemożliwe. \\\\
+Zaobserwowałem, że wraz ze wzorestem stopnia macierzy, zarówno obliczenia wykonywane metodą eliminacji Gaussa, jak i przy użyciu macierzy odwrotnej, rosną wraz ze wzrostem stopnia n macierzy. Błąd w przypadku metody eliminacji Gaussa jest jednak opatrzony mniejszym błędem, ponieważ algorytm ten (operujący na macierzy w postaci schodkowej) pozwala na dojscie do wyniku przy wykonaniu mniejszej ilości operacji. \\
+W przypadku macierzy losowej o zadanym współczynniku metoda eliminacji Gaussa również okazała się lepsza. Tutaj również górę wzięła mniejsza ilość operacji. W tym wypadku zarówno wraz ze wzrostem rozmiarów macierzy, jak i wzorstem czynnika $ cond $ błąd rosnął. \\\\
 Poniżej przedstawiłem tabelę - zestawienie wyników w postaci wyliczonych błędów względnych. \\
 \begin{center}
 \input{../source/task-3/solutions.tex}

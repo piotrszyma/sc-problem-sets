@@ -1,4 +1,5 @@
-# Program  
+# Program sprawdzający wyniki obliczeń rekurencji po 40 iteracji dla różnych zestawów danych
+# autor Piotr Szyma
 
 function evaluate(p_val, c_factor, iter_number)
   results = Float64[]
