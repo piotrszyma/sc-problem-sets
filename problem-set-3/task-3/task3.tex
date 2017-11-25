@@ -1,0 +1,25 @@
+\section{Zadanie 3}
+\subsection{Opis problemu}
+Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(x) = 0 $ $\textsc{metodą siecznych} $.
+\subsection{Pseudokod}
+\begin{algorithm}[H]
+  \KwData{$f, a, b, M, \delta, \epsilon$}
+  \KwResult{$x, f(x), i, err$}
+  $f_a \leftarrow f(a);$ $f_b \leftarrow f(b)$\\
+  \Do{$ k < M $}{
+    $ k \leftarrow k + 1 $ \\
+    \If{$ |f_a| > |f_b| $}{
+      $a \leftrightarrow b$; $f(a) \leftrightarrow f(b)$ 
+    }
+    $ s \leftarrow \frac{b - a}{f_b - f_a}$ \\
+    $ b \leftarrow a$; $ f_b \leftarrow f_a$  \\ 
+    $ a \leftarrow a - f_a * s $  \\ 
+
+    \If{$ |b - a| < \delta \lor |f_a| < \epsilon $}{
+      return $ (a, f_a, k, 0) $;
+    }
+  }
+  return $ (a, f_a, M, 1) $;  
+\end{algorithm}
+\subsection{Implementacja}
+Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.

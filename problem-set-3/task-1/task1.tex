@@ -1,0 +1,29 @@
+\section{Zadanie 1}
+\subsection{Opis problemu}
+Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(x) = 0 $ $\textsc{metodą bisekcji} $.
+\subsection{Pseudokod}
+\begin{algorithm}[H]
+  \KwData{$f, a, b, \delta, \epsilon$}
+  \KwResult{$x, f(x), i, err$}
+  $u \leftarrow f(a);$ $ v \leftarrow f(b) $ \\
+  $e \leftarrow b - a $ \\
+  \If{$ sgn(u) = sgn(v) $}{
+    return (0, 0, 0, 1);
+  }
+  \While{true}{
+    $ i\;= i + 1 $ \\
+    $ e \leftarrow \frac{e}{2} $ \\ 
+    $ c \leftarrow a + e $ \\
+    $ w \leftarrow f(c) $ \\
+    \If{$ |e| < \delta $ or $ |w| < \epsilon $}{
+      return $ (w, f(x), i, 0) $;
+    }
+    \eIf{$ sgn(w) \neq sgn(u) $}{
+      $ b \leftarrow c; $ $ v \leftarrow w $ \\
+    }{
+      $ a \leftarrow c; $ $ u \leftarrow w $ \\
+    }
+  }
+\end{algorithm}
+\subsection{Implementacja}
+Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.

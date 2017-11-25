@@ -1,0 +1,28 @@
+\section{Zadanie 4}
+\subsection{Opis problemu}
+Zadanie polegało na wyznaczeniu pierwiastka równania $ \sin{x} - (\frac{1}{2}x)^{2} = 0 $ przy pomocy wcześniej zaprogramowanych metod, z parametrami odpowiednio:
+\begin{enumerate}
+  \item dla metody bisekcji z przedziałem $[1.5, 2]$, $\delta = \frac{1}{2}*10^{-5}$, $\epsilon = \frac{1}{2}*10^{-5}$
+  \item dla metody stycznych z $ x_0 = 1.5$, $\delta = \frac{1}{2}*10^{-5}$, $\epsilon = \frac{1}{2}*10^{-5}$  
+  \item dla metody siecznych z $ x_0 = 1$, $x_1 = 2$, $\delta = \frac{1}{2}*10^{-5}$, $\epsilon = \frac{1}{2}*10^{-5}$
+  
+  \end{enumerate}
+\subsection{Rozwiązanie}
+Wykorzystując funkcje zaimplementowane w module $ \texttt{MyModule} $ wyliczyłem pierwiastki za pomocą  tych trzech algorytmów.
+\subsection{Wynik}
+
+
+Wyniki zestawiłem w tabeli poniżej: \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+  \hline 
+    Metoda & $x$ & $ f(x)$ & $i$ & $err$ \\
+  \hline
+  Bisekcja & 1.9337539672851562 & -2.7027680138402843e-7 & 16 & 0\\
+  \hline 
+  Stycznych & 1.933753779789742 & -2.2423316314856834e-8 & 4 & 0\\
+  \hline  
+  Siecznych & 1.933753644474301 & 1.564525129449379e-7 & 4 & 0 \\
+  \hline
+\end{tabular} 
+\end{center}
