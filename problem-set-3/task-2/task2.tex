@@ -1,7 +1,7 @@
 \section{Zadanie 2}
 \subsection{Opis problemu}
 Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(x) = 0 $ $\textsc{metodą stycznych} $.
-\subsection{Pseudokod}
+\subsection{Analiza}
 \begin{algorithm}[H]
   \KwData{$f, x_{0}, M, \delta, \epsilon$}
   \KwResult{$x, f(x), i, err$}
@@ -19,5 +19,21 @@ Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(
     $ x_0 \leftarrow x_1 $
   }
 \end{algorithm}
+
+\ \\
+Metoda Newtona polega na linearyzacji wykresu w oparciu o wzór Taylora, tj.
+$$ f(x) = f(c) + f'(c)(x - c) + \frac{1}{2!}f''(c)(x - c)^{2} + \dots $$
+$$ l(x) = f(c) + f'(c)(x - c) $$
+Jest możliwa do zastosowania na przedziale spełniającym następujące warunki:
+\begin{enumerate}
+  \item w przedziale tym powinien znajdować się dokładnie jeden pierwiastek
+  \item wartości funkcji na jego krańcach muszą być różnych znaków
+  \item pierwsza i druga pochodna funkcji w tym przedziale mają mieć stały znak
+\end{enumerate} 
+Na początku wybierany jest punkt $ x_0 $, następnie wyliczana jest styczna do funkcji w punkcie $ x_0 $. (do wyliczenia stycznej do funkcji potrzebna jest znajomość pochodnej funkcji) Wybierany jest kolejny punkt, $ x_1 $ - punkt przecięcia stycznej z osią $ OX $. Punkt $ x_1 $ staje się nowym bazowym, na którym wykonujywana jest operację analogiczną, jak do $ x_0 $. Wyznaczana jest kolejna styczna, jej przecięcie z osią odciętych staje się kolejnym punktem. Wyznaczając kolejne punkty, punkt przecięcia zbliża się do punktu zerowego. Operacja jest powtarzana aż do osiągnięcia wymaganej dokładności. 
+\\
+Metoda Newtona jest metodą o lokalnej zbieżności - aby móc wyznaczyć poprawne miejsce zerowe, należy dobrać odpowiednie parametry startowe - punkty początkowe $x_0$ oraz $x_1$. \\
+
+
 \subsection{Implementacja}
 Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.

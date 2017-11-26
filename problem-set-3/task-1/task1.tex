@@ -1,7 +1,7 @@
 \section{Zadanie 1}
 \subsection{Opis problemu}
 Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(x) = 0 $ $\textsc{metodą bisekcji} $.
-\subsection{Pseudokod}
+\subsection{Analiza}
 \begin{algorithm}[H]
   \KwData{$f, a, b, \delta, \epsilon$}
   \KwResult{$x, f(x), i, err$}
@@ -25,5 +25,11 @@ Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(
     }
   }
 \end{algorithm}
+
+\ \\
+Jeśli $f$ jest funkcją ciągłą w przedziale $[a, b]$ i jeśli $f(a)f(b) < 0$, a więc $ f $ zmienia znak w $ [a, b] $ to ta funkcja musi mieć zero w $(a, b)$. Jest to konsekwencja własności Darboux funkcji ciągłych. Metoda bisekcji korzysta z tej własności. Jeśli $ f(a)f(b) < 0 $, to obliczamy $c = \frac{a + b}{2}$ i sprawdzamy, czy $f(a)f(c) < 0 $. Jesli tak, to $f$ ma zero w $[a, c]$; w przeciwnym wypadku jest $f(c)f(b) < 0$; wtedy pod $a$ podstawiamy $c$. W obu przypadkach przedział $[a, b]$, dwa razy krótszy od poprzedniego, zawiera zero funkcji $f$, więc postępowanie można powtórzyć.\\\\
+Warto zwrócić uwagę na pewne istotne elementy algorytmu. Po pierwsze punkt środkowy $ c $ nie jest obliczany standardowo, tj. $ c = \frac{a + b}{2} $, ponieważ nową wielkość lepiej jest obliczać dodając do poprzedniej małą poprawkę, czyli $ c = a + \frac{b - a}{2} $ Kolejnym ważnym czynnikiem jest sprawdzanie znaku - tj. złym sposobem jest sprawdzanie go poprzez $ wu < 0 $, lepiej $sgn(u) \neq sgn(w) $. Nie można również zapomnieć o pewnej tolerancji błędu, zarówno od strony argumentów $\delta$, jak i wartości $\epsilon$. Warto również zastosować ograniczenie $ M $ maksymalnej ilości kroków. W tym wypadku jednak w treści zadania zostały nałożone inne ograniczenia.
+
+
 \subsection{Implementacja}
-Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.
+Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania. 

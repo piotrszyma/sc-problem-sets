@@ -1,7 +1,7 @@
 \section{Zadanie 3}
 \subsection{Opis problemu}
 Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(x) = 0 $ $\textsc{metodą siecznych} $.
-\subsection{Pseudokod}
+\subsection{Analiza}
 \begin{algorithm}[H]
   \KwData{$f, a, b, M, \delta, \epsilon$}
   \KwResult{$x, f(x), i, err$}
@@ -21,5 +21,8 @@ Zadanie polegało na zaimplementowaniu algorytmu rozwiązującego równanie $ f(
   }
   return $ (a, f_a, M, 1) $;  
 \end{algorithm}
+
+\ \\
+Metoda siecznych polega na wyznaczaniu miejsca zerowego w oparciu o wznaczanie punktów będących przecięciem pewnych siecznych funkcji. Algorytm zaczyna obliczenia od dwóch punktów początkowych $ x_0, x_1 $. Sieczna funkcji, przechodząca przez te punkty, przecina również oś OX. Z punktu przecięcia $ x_2 $ oraz punktu $ x_1 $ wyznaczana jest kolejna sieczna. Generowane sieczne przecinają oś odciętych w miejscach zbliżających się do szukanego miejsca zerowego funkcji. Operacja jest powtarzana aż do momentu osiągnięcia oczekiwanej dokładności. Metoda ta jest lokalnie zbieżna.
 \subsection{Implementacja}
 Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.
