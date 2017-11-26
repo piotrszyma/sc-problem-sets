@@ -6,9 +6,6 @@ using Base.Test
 EPSILON = 10.0^(-5)
 DELTA = 10.0^(-5)
 
-# TEST 1
-# f(x) = ln(x)
-# f(x) = 0 <=> x = 1
 FUNC = x -> log(x)
 FUNC_D = x -> 1/x
 RES = 1.0
@@ -33,9 +30,6 @@ RES = 1.0
 
 @test msiecznych(FUNC, 0.8, 1.2, DELTA, EPSILON, 1000)[1] ≈ RES atol=EPSILON
 
-# TEST 2
-# f(x) = 3x + 7
-# f(x) = 0 <=> x = -7/3 
 FUNC = x -> 3x + 7
 
 RES = (-7.0) / 3.0
@@ -50,4 +44,16 @@ RES = (-7.0) / 3.0
 
 @test msiecznych(FUNC, 0.5, 20.0, DELTA, EPSILON, 1000)[1] ≈ RES atol=EPSILON
 
-@test msiecznych(FUNC, 0.8, 1.2, DELTA, EPSILON, 1000)[1] ≈ RES atol=EPSILON2
+@test msiecznych(FUNC, 0.8, 1.2, DELTA, EPSILON, 1000)[1] ≈ RES atol=EPSILON
+
+
+FUNC = x -> x * exp(-x)
+FUNC_D = x -> ((-1) * (e)^((-1) * x) * (x - 1)) 
+
+@test mstycznych(FUNC, FUNC_D, 1.0, DELTA, EPSILON, 1000)[4] == 2
+
+@test mstycznych(FUNC, FUNC_D, 5.0, DELTA, EPSILON, 1000)[4] == 0
+
+@test mstycznych(FUNC, FUNC_D, 80.0, DELTA, EPSILON, 1000)[4] == 2
+
+@test mstycznych(FUNC, FUNC_D, 30.0, DELTA, EPSILON, 1000)[4] == 2
