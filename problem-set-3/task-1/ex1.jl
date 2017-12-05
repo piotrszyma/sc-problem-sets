@@ -27,13 +27,14 @@ function mbisekcji(f, a::Float64, b::Float64, delta::Float64, epsilon::Float64)
 end
 
 function mstycznych(f, pf, x0::Float64, delta::Float64, epsilon::Float64, maxit::Int)
-  if abs(pf(x0)) < epsilon
-    return (x0, pf(x0), 0, 2)
-  end 
+
 
   v = f(x0)
   
   for k in [1:maxit...]
+    if abs(pf(x0)) < epsilon
+      return (x0, pf(x0), 0, 2)
+    end 
     x1 = x0 - (v / (pf(x0)))
     v = f(x1)
     if abs(x1 - x0) < delta || abs(v) < epsilon
