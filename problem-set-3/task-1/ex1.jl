@@ -27,8 +27,6 @@ function mbisekcji(f, a::Float64, b::Float64, delta::Float64, epsilon::Float64)
 end
 
 function mstycznych(f, pf, x0::Float64, delta::Float64, epsilon::Float64, maxit::Int)
-
-
   v = f(x0)
   
   for k in [1:maxit...]
