@@ -2,5 +2,14 @@
 \subsection{Opis problemu}
 W tym zadaniu należało napisać funkcję, która zinterpoluje zadaną funkcję $f(x)$ w przedziale $[a, b]$ za pomocą wielomianu interpolacyjnego stopnia $n$ w postaci Newtona, a następnie wygeneruje wielomian interpolacyjny i interpolowaną funkcję. (np. przy pomocy pakietu $\mathtt{Plots}$, $\mathtt{PyPlot}$ lub $\mathtt{Gadfly}$). Do interpolacji należało użyć węzłów równoodległych, tj. $x_k = a + kh, k = \frac{b - a}{n}, k = 0, 1, \ldots,  n.$
 \subsection{Analiza}
+W celu wykonania interpolacji wykonałem następujące kroki:
+\begin{enumerate}
+  \item Wygenerowałem wektor węzłów $\mathtt{W}$
+  \item Wyliczyłem wartości funkcji w węzłach i zapisałem do tablicy $\mathtt{T_{wynik}}$
+  \item Używając własnoręcznie zaimplementowanej funkcji $\mathtt{ilorazyRoznicowe(W, T_{wynik})}$ wygenerowałem wektor ilorazów $\mathtt{I_{ilorazy}}$.
+  \item Wykorzystując  $\mathtt{W}$ oraz $\mathtt{I_{ilorazy}}$ przy pomocy $\mathtt{warNewton(W, I_{ilorazy})}$ wygenerowałem tablicę $\mathtt{N_{wynik}}$ wartości funkcji w zakresie, w którym zostanie wygenerowany wykres
+  \item Biorąc $\mathtt{N_{wynik}}$ wygenerowałem wykres wielomianu interpolacyjnego
+  \item Powyższy wykres zestawiłem z rzeczywistym wykresem interpolowanej funkcji
+\end{enumerate}
 \subsection{Implementacja}
 Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.

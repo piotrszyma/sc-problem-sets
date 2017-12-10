@@ -3,5 +3,23 @@
 Celem zadania było stworzenie funkcji obliczającej wartość wielomianu interpolacyjnego stopnia $ n $ w postaci Newtona $N_n(x)$ w punkcie $ x = t $ za pomocą uogólninonego algorytmu Hornera w czasie $ O(n) $. (implementacja zadania 8 z listy nr 4 z ćwiczeń)
 \\ $ \texttt{function warNewton (x::Vector{Float64}, fx::Vector{Float64}, t::Float64)} $ \\
 \subsection{Analiza}
+Na zajęciach pokazaliśmy, że poniższa formuła (uogólniony algorytm Hornera) pozwala na wyliczenie wartości wielomianu interpolacyjnego Newtona: \\
+\begin{center}
+  \begin{tabular}{lcl}
+    $w_n(x) $ & $=$ & $f[x_0, x_1, \ldots, x_n]$ \\
+    $w_k(x) $ & $=$ & $f[x_0, x_1, \ldots, x_k] + (x-x_k)w_{k+1} \;\; (k= n-1,\ldots, 0)$ \\
+    $N_n(x) $ & $=$ & $w_0(x)$
+  \end{tabular}
+\end{center}
+Rzeczywiście, starając się wyliczyć interesującą nas wartość $N_n(x)$ rozwijamy rekurencyjny wzór: \\
+\begin{tabular}{lcc}
+  $ N_n(x) $ & = & $ f[x_0, x_1, \ldots, x_k] + (x-x_k)(f[x_0, x_1, \ldots, x_{k+1}] + (x-x_{k+1}) w_{k+2}) $ \\
+  & = & $ f[x_0, x_1, \ldots, x_k] + (x-x_k)(f[x_0, x_1, \ldots, x_{k+1}] + (x-x_{k+1})(f[x_0, x_1, \ldots, x_{k+2}] + (x-x_{k+2}) w_{k+3})) $ \\
+  & = & $ \ldots $ \\
+  & = & $ f[x_0] + f[x_0, x_1](x-x_1) + \ldots + f[x_0,\ldots,x_n](x-x_1)\ldots(x-x_n)$ \\
+  \end{tabular}
+ \\
+który zakończy się w momencie, gdy dojdziemy do $k = n$, czyli dla $w_n(x)$, za $x$ podstawiając nasz argument.
 \subsection{Implementacja}
+Warunkiem postawionym w treści zadania było stworzenie algorytmu działającego w czasie $ O(n) $, dostając na wstępie wektor węzłów $\texttt{x}$ oraz wektor ilorazów różnicowych $\texttt{fx}$. Po dokonaniu analizy wyżej wymienionego wzoru, udało mi się stworzyć algorytm, który na wstępie generuje tablicę $ \mathtt{W} $ długości $n$ i wypełnia jej ostatnią komórkę wartością $\mathtt{W[n]} = f[x_0, x_1, \ldots, x_n]$ (którą bierze z wektora $\texttt{fx}$). W kolejnych krokach przesuwam się do poprzednich komórek, wypełniając je wg. schematu  $\mathtt{W[k]} = f[x_0, x_1, \ldots, x_k] + (x-x_k) * \mathtt{W[k + 1]} $. Do wypełnienia całej tabeli $\mathtt{W}$ potrzeba jednego przejścia pętli - co gwarantuje liniową złożoność algorytmu. \\\\
 Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania.

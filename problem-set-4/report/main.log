@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.23)  7 DEC 2017 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.23)  10 DEC 2017 16:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -387,20 +387,6 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \algocf@hangindent=\skip44
 
-
-/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty:1479: LaTeX
- Error: Unknown option `polish' for package `algorithm2e'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1479 \@algocf@algotitleofalgo
-                               % fix name for \TitleOfAlgo to \algorithmcfna...
-
-The option `polish' was not declared in package `algorithm2e', perhaps you
-misspelled its name. Try typing  <return>  to proceed.
-
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
@@ -584,6 +570,55 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks24
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+\c@tracingmulticols=\count113
+\mult@box=\box37
+\multicol@leftmargin=\dimen147
+\c@unbalance=\count114
+\c@collectmore=\count115
+\doublecol@number=\count116
+\multicoltolerance=\count117
+\multicolpretolerance=\count118
+\full@width=\dimen148
+\page@free=\dimen149
+\premulticols=\dimen150
+\postmulticols=\dimen151
+\multicolsep=\skip65
+\multicolbaselineskip=\skip66
+\partial@page=\box38
+\last@line=\box39
+\maxbalancingoverflow=\dimen152
+\mult@rightbox=\box40
+\mult@grightbox=\box41
+\mult@gfirstbox=\box42
+\mult@firstbox=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\c@columnbadness=\count119
+\c@finalcolumnbadness=\count120
+\last@try=\dimen153
+\multicolovershoot=\dimen154
+\multicolundershoot=\dimen155
+\mult@nat@firstbox=\box61
+\colbreak@box=\box62
+\mc@col@check@num=\count121
+)
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (483.69684pt) is ignored.
@@ -595,30 +630,30 @@ Package geometry Warning: Over-specification in `v'-direction.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count113
-\scratchdimen=\dimen147
-\scratchbox=\box37
-\nofMPsegments=\count114
-\nofMParguments=\count115
+\scratchcounter=\count122
+\scratchdimen=\dimen156
+\scratchbox=\box63
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count116
-\MPscratchDim=\dimen148
-\MPnumerator=\count117
-\makeMPintoPDFobject=\count118
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen157
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
@@ -712,12 +747,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) [1] (./../task-2/task2.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--10
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 23--35
+
+ []
+
+[1] (./../task-2/task2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-) [2] (./../task-3/task3.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 24--37
+
+ []
+
+[2] (./../task-3/task3.tex
 Overfull \hbox (0.62479pt too wide) in paragraph at lines 3--4
 \T1/cmr/m/n/10 W tym zada-niu nale»aªo dla zadanych wspóªczyn-ników wielo-mi-an
 u in-ter-po-la-cyjnego w postaci New-tona $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10
@@ -725,67 +780,159 @@ u in-ter-po-la-cyjnego w postaci New-tona $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10
 /cmm/m/it/10 ; c[] \OT1/cmr/m/n/10 =
  []
 
-) [3] (./../task-4/task4.tex) [4] (./../task-5/task5.tex
-<../plots/ex5.png, id=30, 462.528pt x 346.896pt>
-File: ../plots/ex5.png Graphic file (type png)
- <use ../plots/ex5.png>
-Package pdftex.def Info: ../plots/ex5.png used on input line 9.
-(pdftex.def)             Requested size: 227.6217pt x 170.71652pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
+)
+Underfull \hbox (badness 10000) in paragraph at lines 7--39
 
  []
 
-) [5 <../plots/ex5.png>] (./../task-6/task6.tex
-<../plots/ex6_f_1.png, id=37, 462.528pt x 346.896pt>
-File: ../plots/ex6_f_1.png Graphic file (type png)
+[3] (./../task-4/task4.tex) [4] (./../task-5/task5.tex
+<../task-5/plots/myplot-ex-5.png, id=32, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-ex-5.png Graphic file (type png)
 
-<use ../plots/ex6_f_1.png>
-Package pdftex.def Info: ../plots/ex6_f_1.png used on input line 10.
-(pdftex.def)             Requested size: 227.6217pt x 170.71652pt.
+<use ../task-5/plots/myplot-ex-5.png>
+Package pdftex.def Info: ../task-5/plots/myplot-ex-5.png used on input line 12.
 
-<../plots/ex6_f_2.png, id=38, 462.528pt x 346.896pt>
-File: ../plots/ex6_f_2.png Graphic file (type png)
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
 
-<use ../plots/ex6_f_2.png>
-Package pdftex.def Info: ../plots/ex6_f_2.png used on input line 16.
-(pdftex.def)             Requested size: 227.6217pt x 170.71652pt.
- [6 <../plots/ex6_f_1.png> <../plots/ex6_f_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+<../task-5/plots/myplot-ex-10.png, id=34, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-ex-10.png Graphic file (type png)
+
+<use ../task-5/plots/myplot-ex-10.png>
+Package pdftex.def Info: ../task-5/plots/myplot-ex-10.png used on input line 13
+.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-5/plots/myplot-ex-15.png, id=35, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-ex-15.png Graphic file (type png)
+
+<use ../task-5/plots/myplot-ex-15.png>
+Package pdftex.def Info: ../task-5/plots/myplot-ex-15.png used on input line 16
+.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-5/plots/myplot-x2sinx-5.png, id=36, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-x2sinx-5.png Graphic file (type png)
+
+<use ../task-5/plots/myplot-x2sinx-5.png>
+Package pdftex.def Info: ../task-5/plots/myplot-x2sinx-5.png used on input line
+ 22.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-5/plots/myplot-x2sinx-10.png, id=37, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-x2sinx-10.png Graphic file (type png)
+
+<use ../task-5/plots/myplot-x2sinx-10.png>
+Package pdftex.def Info: ../task-5/plots/myplot-x2sinx-10.png used on input lin
+e 23.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-5/plots/myplot-x2sinx-15.png, id=38, 569.12625pt x 569.12625pt>
+File: ../task-5/plots/myplot-x2sinx-15.png Graphic file (type png)
+
+<use ../task-5/plots/myplot-x2sinx-15.png>
+Package pdftex.def Info: ../task-5/plots/myplot-x2sinx-15.png used on input lin
+e 26.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+) [5] [6 <../task-5/plots/myplot-ex-5.png> <../task-5/plots/myplot-ex-10.png> <
+../task-5/plots/myplot-ex-15.png>]
+[7 <../task-5/plots/myplot-x2sinx-5.png> <../task-5/plots/myplot-x2sinx-10.png>
+ <../task-5/plots/myplot-x2sinx-15.png>] (./../task-6/task6.tex
+<../task-6/plots/myplot-abs-5.png, id=58, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-abs-5.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-abs-5.png>
+Package pdftex.def Info: ../task-6/plots/myplot-abs-5.png used on input line 12
+.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-6/plots/myplot-abs-10.png, id=59, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-abs-10.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-abs-10.png>
+Package pdftex.def Info: ../task-6/plots/myplot-abs-10.png used on input line 1
+3.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-6/plots/myplot-abs-15.png, id=60, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-abs-15.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-abs-15.png>
+Package pdftex.def Info: ../task-6/plots/myplot-abs-15.png used on input line 1
+6.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-6/plots/myplot-1x2-5.png, id=61, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-1x2-5.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-1x2-5.png>
+Package pdftex.def Info: ../task-6/plots/myplot-1x2-5.png used on input line 22
+.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-6/plots/myplot-1x2-10.png, id=62, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-1x2-10.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-1x2-10.png>
+Package pdftex.def Info: ../task-6/plots/myplot-1x2-10.png used on input line 2
+3.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+
+<../task-6/plots/myplot-1x2-15.png, id=63, 569.12625pt x 569.12625pt>
+File: ../task-6/plots/myplot-1x2-15.png Graphic file (type png)
+
+<use ../task-6/plots/myplot-1x2-15.png>
+Package pdftex.def Info: ../task-6/plots/myplot-1x2-15.png used on input line 2
+6.
+(pdftex.def)             Requested size: 251.07481pt x 251.07632pt.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 37--45
 
  []
 
-) [7] (./main.aux) )
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--45
+
+ []
+
+[8] [9 <../task-6/plots/myplot-abs-5.png> <../task-6/plots/myplot-abs-10.png> <
+../task-6/plots/myplot-abs-15.png>] [10 <../task-6/plots/myplot-1x2-5.png> <../
+task-6/plots/myplot-1x2-10.png> <../task-6/plots/myplot-1x2-15.png>]
+(./main.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 4953 strings out of 494946
- 67478 string characters out of 6180980
- 157877 words of memory out of 5000000
- 8134 multiletter control sequences out of 15000+600000
- 15095 words of font info for 42 fonts, out of 8000000 for 9000
+ 5126 strings out of 494946
+ 71063 string characters out of 6180980
+ 159323 words of memory out of 5000000
+ 8288 multiletter control sequences out of 15000+600000
+ 18986 words of font info for 49 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,28p,1152b,3643s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,28p,952b,3812s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
 r-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm
--super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/
-sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm120
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (8 pages, 240091 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-
+super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/s
+fbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfcc1000
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (11 pages, 642398 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 142 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
