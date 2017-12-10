@@ -1,3 +1,7 @@
+# Program do zadania nr 6
+# generowanie wykresów funkcji anonimowych a i b
+# autor Piotr Szyma
+
 include("./../task-1/ex1.jl");
 using MyModule
 

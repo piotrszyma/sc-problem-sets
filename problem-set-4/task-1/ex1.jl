@@ -1,3 +1,6 @@
+# Program zawierający funkcje z zadań 1, 2, 3 zamknięte w module
+# autor Piotr Szmyma
+
 module MyModule
 using Gadfly
 using Cairo
