@@ -1,0 +1,24 @@
+\section{Zadanie 1}
+\subsection{Opis problemu}
+Napisać funkcję obliczającą ilorazy różnicowe zgodnie ze specyfikacją podaną w treści zadania bez użycia tablicy dwuwymiarowej (macierzy). \\ $ \texttt{function ilorazyRoznicowe (x::Vector{Float64}, f::Vector{Float64})} $ \\
+\subsection{Analiza}
+Implementacja metody wyliczania ilorazów różnicowych to pierwszy krok do stworzenia algorytmu aproksymującego funkcję metodą Newtona. Podstawą do zbudowania algorymu jest następujący wzór rekurencyjny:
+$$ f([x_k, x_{k+1}, \ldots, x_{k+m}]) = \frac{f[x_{k+1}, x_{k+2},\ldots,x_{k+m}] - f[x_k, x_{k+1}, \ldots, x_{k+m-1}]}{x_{k+m} - x_k}$$
+który rozwijamy, aż do postaci ilorazu pojedynczego węzła, który jest nam znany i wynosi $ f[x_0] = f(x_0)$.
+Oto tablica trójkątna obrazująca wartości ilorazów potrzebne do wyliczenia interesującego nas ilorazu - w tym wypadku $ f[x_0, x_1, x_2, x_3] $. Do wyliczenia ilorazu w komórce $(x, y)$ potrzebujemy wartości z komórek $(x - 1, y) $ oraz $(x - 1, y - 1)$. Wartości $f[x_k] = f(x_k)$ znamy od początku, więc - idąc od lewej strony - jesteśmy w stanie wypełnić całą tabelę trójkątną.  \\
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+  \begin{tabular}{ c | c c c c c }
+    $ x_0 $ & $ f[x_0] $ & $ f[x_0 x_1] $ & $ f[x_0 x_1 x_2] $ & $ f[x_0 x_1 x_2 x_3] $\\
+    $ x_1 $ & $ f[x_1] $ & $ f[x_1 x_2] $ & $ f[x_1 x_2 x_3] $ \\
+    $ x_2 $ & $ f[x_2] $ & $ f[x_2 x_3] $\\
+    $ x_3 $ & $ f[x_3] $ 
+  \end{tabular}
+\end{center}
+Wielomian, jaki można odczytać z powyższej tabeli to:
+$$ w(x) = f[x_0] + f[x_0 x_1](x - x_0) + f[x_0 x_1 x_2](x - x_0)(x - x_1) + f[x_0 x_1 x_2 x_3](x - x_0)(x - x_1)(x - x_2) $$
+Specyfikacja funkcji, jaką mieliśmy zaimplementować w zadaniu wymagała, aby wartość zwracana była wektorem ilorazów. Zestawiając to z przykładem macierzy trójkątnej i odczytując z niej odpowiednie komórki, funkcja powina zwrócić wektor $(f[x_0], f[x_0 x_1], f[x_0 x_1 x_2], f[x_0 x_1 x_2 x_3])$ - znajdujący się w pierwszym wierszu macierzy.
+
+\subsection{Implementacja}
+Założenie zadania wymagało, aby wyliczenia ilorazów nie używać tablicy dwuwymiarowej. To założenie wyeliminowało możliwość implementacji w postaci iteracyjnej, ani nie pozwoliło na użycie tablicy będącej $ cachem $ już obliczonych wartości. W mojej implementacji posłużyłem się rekurencją, która oddaje matematyczny wzór rekurencyjny przytoczony w części dotyczacej analizy zadania. \\\\
+Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania. 
