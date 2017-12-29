@@ -32,8 +32,6 @@ function generate_entry(values_list, size)
     end
   end
 
-  println(A)
-
   counter = 1
   for j in 1:4
     x, y, value = B_vals[counter]
@@ -93,8 +91,49 @@ function read_vector_from_file(filename, v)
   return vector
 end
 
+#
+#  1 2 3
+#  C A B
+#( A B C )
+function gamma_factor(matrix)
+  cached = Array{Float64}[[] for _ in 1:length(matrix)]
+  function _gamma_factor(i, matrix)
+    if length(cached[i]) != 0
+      return cached[i]
+    elseif i == 1
+      cached[1] = inv(full(matrix[1][2])) * full(matrix[1][3])
+      return cached[1]
+    else
+      cached[i] = inv(full(matrix[i][2]) - full(matrix[i][1]) * _gamma_factor(i - 1, matrix)) * full(matrix[i][3])
+      return cached[i]
+    end
+  end
+  return [_gamma_factor(c, matrix) for c in 1:length(matrix)]
+end
+
+function beta_factor(matrix, vector, gamma_factor)
+  println(length(matrix))
+  cached = Array{Float64}[[] for _ in 1:length(matrix)]
+  function _beta_factor(i, matrix)
+    if length(cached[i]) != 0
+      return cached[i]
+    elseif i == 1
+      cached[1] = inv(full(matrix[1][2])) * full(vector)
+      return cached[1]
+    else
+      cached[i] = inv(full(matrix[i][2]) - full(matrix[i][1]) * gamma_factor[i - 1]) * (vector[i] - matrix[i][1] * _beta_factor(i - 1, matrix))
+      return cached[i]
+    end
+  end
+  return [_beta_factor(c, matrix) for c in 1:length(matrix)]
+end
+
 matrix = read_matrix_from_file("../input/A.txt");
 
 vector = read_vector_from_file("../input/b.txt", length(matrix))
 
-println(vector)
+# println(vector)
+# println(inv(matrix))
+gamma = gamma_factor(matrix)
+println(beta_factor(matrix, vector, gamma))
+# triangulate(matrix, vector)
