@@ -112,28 +112,49 @@ function gamma_factor(matrix)
 end
 
 function beta_factor(matrix, vector, gamma_factor)
-  println(length(matrix))
-  cached = Array{Float64}[[] for _ in 1:length(matrix)]
+  cached = []
+
+  [push!(cached, []) for _ in 1:length(matrix)]
+
   function _beta_factor(i, matrix)
     if length(cached[i]) != 0
       return cached[i]
     elseif i == 1
-      cached[1] = inv(full(matrix[1][2])) * full(vector)
+      cached[1] = inv(full(matrix[1][2])) * vector[i]
       return cached[1]
     else
-      cached[i] = inv(full(matrix[i][2]) - full(matrix[i][1]) * gamma_factor[i - 1]) * (vector[i] - matrix[i][1] * _beta_factor(i - 1, matrix))
+      cached[i] = inv(full(matrix[i][2]) - full(matrix[i][1]) * gamma_factor[i - 1]) * (vector[i] - full(matrix[i][1]) * _beta_factor(i - 1, matrix))
       return cached[i]
     end
   end
   return [_beta_factor(c, matrix) for c in 1:length(matrix)]
 end
 
+function matrix_resolver(beta_matrix, gamma_matrix)
+  solutions = []
+  [push!(solutions, []) for _ in 1:length(beta_matrix)]
+  function _matrix_resolver(i, beta_matrix, gamma_matrix)
+    if i == length(beta_matrix)
+      solutions[i] = beta_matrix[i]
+      return solutions[i]
+    else
+      solutions[i] = beta_matrix[i] - gamma_matrix[i] * _matrix_resolver(i + 1, beta_matrix, gamma_matrix)
+      return solutions[i]
+    end
+  end
+  return [_matrix_resolver(c, beta_matrix, gamma_matrix) for c in 1:length(beta_matrix)]
+end
+
 matrix = read_matrix_from_file("../input/A.txt");
 
 vector = read_vector_from_file("../input/b.txt", length(matrix))
 
+
 # println(vector)
 # println(inv(matrix))
-gamma = gamma_factor(matrix)
-println(beta_factor(matrix, vector, gamma))
+gamma_matrix = gamma_factor(matrix)
+beta_matrix = beta_factor(matrix, vector, gamma_matrix)
+solutions_matrix = matrix_resolver(beta_matrix, gamma_matrix)
+
+# println(solutions_matrix)
 # triangulate(matrix, vector)
