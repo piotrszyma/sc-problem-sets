@@ -115,12 +115,12 @@ function gaussianElimination(a::SparseMatrixCSC, b::SparseVector)
       for j in k+1:n
         a[i, j] = a[i, j] - a[i, k] * a[k, j]
       end
+      b[i] = b[i] - a[i, k] * b[k]
     end
   end
 
   for k in 1:n - 1
     for i in k+1:n
-      b[i] = b[i] - a[i, k] * b[k]
     end
   end
   x = [0.0 for i in 1:n]
@@ -135,7 +135,7 @@ function gaussianElimination(a::SparseMatrixCSC, b::SparseVector)
   return x
 end
 
-function gaussianElimination2(a::SparseMatrixCSC, b::SparseVector)
+function gaussianEliminationWithPartialPivoting(a::SparseMatrixCSC, b::SparseVector)
   n = trunc(Int, sqrt(length(a)))
   s = [0.0 for i in 1:n]
   p = [0 for i in 1:n]
@@ -146,7 +146,6 @@ function gaussianElimination2(a::SparseMatrixCSC, b::SparseVector)
       s[i] = max(s[i], abs(a[i, j]))
     end
     p[i] = i
-    println(p[i])
   end
   j = 0
   for k in 1:n-1
@@ -168,9 +167,7 @@ function gaussianElimination2(a::SparseMatrixCSC, b::SparseVector)
        end
     end
   end
-  
   # forward elimination
-
   for k in 1:n-1
     for i in k+1:n
       b[p[i]] = b[p[i]] - a[p[i], k] * b[p[k]]
@@ -178,7 +175,6 @@ function gaussianElimination2(a::SparseMatrixCSC, b::SparseVector)
   end
   # backward solve
   x = [0.0 for i in 1:n]
-
   for i in n:-1:1
     s = b[p[i]]
     for j in i+1:n
@@ -189,50 +185,3 @@ function gaussianElimination2(a::SparseMatrixCSC, b::SparseVector)
 
   return x
 end
-
-function luDecomposition(a::SparseMatrixCSC)
-  n = trunc(Int, sqrt(length(a)))
-  L = reshape([0.0 for i in 1:n * n], n, n)
-  U = reshape([0.0 for i in 1:n * n], n, n)
-
-  # decomposition
-  # decomposition
-  for i in 1:n
-    #upper triangular
-    for k in i:n
-      #summation of L(i, j) * U(j, k)
-      sum = 0
-      for j in 1:i
-        sum += L[i, j] * U[j, k]
-      end
-      U[i, k] = a[i, k] - sum;
-    end
-
-    #lower triangular
-    for k in i:n
-      if i == k
-        L[i, i] = 1.0
-      else
-        sum = 0
-        for j in 1:i
-          sum += L[k, j] * U[j, i]
-        end
-        L[k, i] = (a[k, i] - sum) / U[i, i]
-      end
-    end
-  end
-  return L, U
-end
-
-
-# A * x = b
-# x = b / A
-
-# println(gaussianElimination2(A, b))
-x = [ 2. -4. -4. ; 
-     -1.  6. -2. ; 
-     -2.  3.  8. ]
-println(luDecomposition(sparse(x)))
-
-println(lufact(x))
-# println(A \ b)

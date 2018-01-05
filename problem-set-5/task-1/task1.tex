@@ -1,24 +1,49 @@
 \section{Zadanie 1}
 \subsection{Opis problemu}
-Napisać funkcję obliczającą ilorazy różnicowe zgodnie ze specyfikacją podaną w treści zadania bez użycia tablicy dwuwymiarowej (macierzy). \\ $ \texttt{function ilorazyRoznicowe (x::Vector{Float64}, f::Vector{Float64})} $ \\
-\subsection{Analiza}
-Implementacja metody wyliczania ilorazów różnicowych to pierwszy krok do stworzenia algorytmu aproksymującego funkcję metodą Newtona. Podstawą do zbudowania algorymu jest następujący wzór rekurencyjny:
-$$ f([x_k, x_{k+1}, \ldots, x_{k+m}]) = \frac{f[x_{k+1}, x_{k+2},\ldots,x_{k+m}] - f[x_k, x_{k+1}, \ldots, x_{k+m-1}]}{x_{k+m} - x_k}$$
-który rozwijamy, aż do postaci ilorazu pojedynczego węzła, który jest nam znany i wynosi $ f[x_0] = f(x_0)$.
-Oto tablica trójkątna obrazująca wartości ilorazów potrzebne do wyliczenia interesującego nas ilorazu - w tym wypadku $ f[x_0, x_1, x_2, x_3] $. Do wyliczenia ilorazu w komórce $(x, y)$ potrzebujemy wartości z komórek $(x - 1, y) $ oraz $(x - 1, y - 1)$. Wartości $f[x_k] = f(x_k)$ znamy od początku, więc - idąc od lewej strony - jesteśmy w stanie wypełnić całą tabelę trójkątną.  \\
-\renewcommand{\arraystretch}{1.5}
+Celem tego zadania było zaimplementowanie metody rozwiązującej układ $Ax = b$ metodą eliminacji Gaussa uwzględniając specyficzną postać macierzy $ A \in \mathbb{R}^{n \times n} $, tj. macierzy o charakterystycznej strukturze przedstawionej poniżej oraz wektora prawych stron $ b \in \mathbb{R}^{n} $, $n > 4$. \\
+\[
+\begin{bmatrix}
+    A_1 & C_1 &  0  &  0  &  0  & \dots & 0 \\
+    B_2 & A_2 & C_2 &  0  &  0  & \dots & 0 \\
+     0  & B_3 & A_3 & C_3 &  0  & \dots & 0 \\
+    \vdots  & \ddots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+    0  & \dots & 0 & B_{v-2} &  A_{v-2}  & C_{v-2} & 0 \\
+    0  & \dots & 0 & 0 &  B_{v-1} & A_{v-1}  & C_{v-1}  \\
+    0  & \dots & 0 & 0 &  0  & B_{v} &  A_{v} \\
+\end{bmatrix}
+\]
+gdzie $v = \frac{n}{l}$, przy załozeniu, że $n$ jest podzielne przez $l$, a $l$ jest rozmiarem wszystkich bloków wewnętrznych. Bloki $ A_k \in \mathbb{R}^{l \times l} $ to macierze gęste, bloki $0$ to macierze zerowe stopnia $l$ bloki $ B_k \in \mathbb{R}^{l \times l} $ następującej postaci:
 \begin{center}
-  \begin{tabular}{ c | c c c c c }
-    $ x_0 $ & $ f[x_0] $ & $ f[x_0 x_1] $ & $ f[x_0 x_1 x_2] $ & $ f[x_0 x_1 x_2 x_3] $\\
-    $ x_1 $ & $ f[x_1] $ & $ f[x_1 x_2] $ & $ f[x_1 x_2 x_3] $ \\
-    $ x_2 $ & $ f[x_2] $ & $ f[x_2 x_3] $\\
-    $ x_3 $ & $ f[x_3] $ 
-  \end{tabular}
+\[
+$ B_k $ = 
+\begin{bmatrix}
+    0 & \dots & 0 & b_{1 l-1}^{k} & b_{1 l}^{k} \\
+    0 & \dots & 0 & b_{2 l-1}^{k} & b_{2 l}^{k} \\
+    \vdots &  & \vdots & \vdots & \vdots \\
+    0 & \dots & 0 & b_{l l-1}^{k} & b_{l l}^{k} \\
+\end{bmatrix}
+\]
 \end{center}
-Wielomian, jaki można odczytać z powyższej tabeli to:
-$$ w(x) = f[x_0] + f[x_0 x_1](x - x_0) + f[x_0 x_1 x_2](x - x_0)(x - x_1) + f[x_0 x_1 x_2 x_3](x - x_0)(x - x_1)(x - x_2) $$
-Specyfikacja funkcji, jaką mieliśmy zaimplementować w zadaniu wymagała, aby wartość zwracana była wektorem ilorazów. Zestawiając to z przykładem macierzy trójkątnej i odczytując z niej odpowiednie komórki, funkcja powina zwrócić wektor $(f[x_0], f[x_0 x_1], f[x_0 x_1 x_2], f[x_0 x_1 x_2 x_3])$ - znajdujący się w pierwszym wierszu macierzy.
+Natomiast bloki $ C_k \in \mathbb{R}^{l \times l} $ to macierze diagonalne:
+\begin{center}
+\[
+$ C_k $ = 
+\begin{bmatrix}
+    c_{1}^{k} & 0 & 0 & \dots & 0 \\
+    0 & c_{2}^{k} & 0 & \dots & 0 \\
+    \vdots & \ddots & \ddots & \ddots & \vdots \\
+    0 & \dots & 0 & c_{l-1}^{k} & 0 \\
+    0 & \dots & 0 & 0 & c_{l}^{k} \\
+
+  \end{bmatrix}
+\]
+\end{center}
+Należało stworzyć dwa warianty implementacji:
+\begin{enumerate}
+  \item bez wyboru elementu głównego
+  \item z wyborem elementu głównego
+\end{enumerate}
+Dodatkowym wymaganiem była złożoność algorytmu, która - po uwzględnieniu postaci macierzy - ma wynosić nie, tak jak w standardowym algortytmie eliminacji $O(n^3)$, a $O(n)$.
+\subsection{Analiza}
 
 \subsection{Implementacja}
-Założenie zadania wymagało, aby wyliczenia ilorazów nie używać tablicy dwuwymiarowej. To założenie wyeliminowało możliwość implementacji w postaci iteracyjnej, ani nie pozwoliło na użycie tablicy będącej $ cachem $ już obliczonych wartości. W mojej implementacji posłużyłem się rekurencją, która oddaje matematyczny wzór rekurencyjny przytoczony w części dotyczacej analizy zadania. \\\\
-Moja implementacja algorytmu w języku Julia znajduje się w module $ \texttt{MyModule} $ znajdującym się w pliku załączonym do tego sprawozdania. 
