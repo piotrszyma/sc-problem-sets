@@ -47,7 +47,34 @@ function testGaussianEliminationWithPivot()
   X = gaussianEliminationWithPivot(M, V, n, l)
   println(X)
 end
+
+function testLowerUpperFactorization()
+  M, n, l = readMatrix("./../input/A.txt")
+  L, U = lowerUpperFactorization(M, n, l)
+end
+
+function testResultOfLU()
+  M = sparse([
+    1.0 4.0 -3.0 ;
+    -2.0 8.0 5.0 ;
+    3.0 4.0 7.0 ;
+  ])
+  b = sparse([1.0 ; 2.0 ; 3.0])
+  x = full(M) \ full(b) 
+  println(x)
+  n = 3
+  l = 3
+  L, U = lowerUpperFactorization(M, n, l)
+
+  x = solveFromLowerUpperMatrices(L, U, b, n, l)
+  println(x)
+  # L, U = lowerUpperFactorization(M, n, l)
+  # println(L)
+  # println(U)
+end
 # testShouldReadMatrixFromFile()
 # testShouldReadVectorFromFile()
 # testGaussianEliminationWithoutPivoting()
-testGaussianEliminationWithPivot()
+# testGaussianEliminationWithPivot()
+# testLowerUpperFactorization()
+testResultOfLU()

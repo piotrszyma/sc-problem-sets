@@ -1,5 +1,13 @@
 module blocksys
-  export readMatrix, readVector, gaussianElimination, gaussianEliminationWithPivot
+  export 
+  readMatrix, 
+  readVector, 
+  gaussianElimination,
+  gaussianEliminationWithPivot,
+  lowerUpperFactorization,
+  lowerUpperFactorizationWithPivot,
+  solveFromLowerUpperMatrices,
+  printMatrix
 
   function printMatrix(matrix) 
     n = trunc(Int, sqrt(length(matrix)))
@@ -87,7 +95,6 @@ module blocksys
           b[k] = b[index]
           b[index] = temp
         end
-
         mults[i] = U[i, k] / U[k, k]
         L[i, k] = mults[i]
         U[i, k] = 0.0
@@ -99,38 +106,34 @@ module blocksys
     end
     # calculate solutions
     if solve
-      R = zeros(n)
-      for i in n:-1:1
-        s = b[i]
-        for j in i+1:n
-          s = s - U[i, j] * R[j]
-        end
-        R[i] = s / U[i, i]
-      end
+      R = backwardSubstitution(U, b, n, l)
       return R
     else
       # return U
       for i in 1:n
         L[i, i] = 1.0
       end
-      return L, A
+      return sparse(L), sparse(A)
     end
     
   end
 
   function gaussianElimination(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
     X = performGaussianElimination(A, b, n, l, false, true)
-    return X
+    return sparse(X)
   end
   
   function gaussianEliminationWithPivot(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
     X = performGaussianElimination(A, b, n, l, true, true)
-    return X
+    return sparse(X)
   end
 
   function lowerUpperFactorization(A::SparseMatrixCSC, n::Int64, l::Int64)
     b = spzeros(n)
     L, U = performGaussianElimination(A, b, n, l, false, false)
+    printMatrix(L)
+    printMatrix(U)
+    printMatrix(L * U)
     return L, U
   end
 
@@ -140,4 +143,34 @@ module blocksys
     return L, U
   end
 
+  function forwardSubstitution(L::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
+    R = spzeros(n)
+    for i in 1:n
+      s = b[i]
+      for j in 1:i-1
+        s = s - L[i, j] * R[j]
+      end
+      R[i] = s / L[i, i]
+    end
+    return R
+  end
+  
+  function backwardSubstitution(U::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
+    # this is valid
+    R = spzeros(n)
+    for i in n:-1:1
+      s = b[i]
+      for j in i+1:n
+        s = s - U[i, j] * R[j]
+      end
+      R[i] = s / U[i, i]
+    end
+    return R
+  end
+
+  function solveFromLowerUpperMatrices(L::SparseMatrixCSC, U::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
+    y = forwardSubstitution(L, b, n, l)
+    x = backwardSubstitution(U, y, n, l)
+    return x
+  end
 end 
