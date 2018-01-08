@@ -2,12 +2,21 @@ module blocksys
   export 
   readMatrix, 
   readVector, 
+  writeVector,
+  printMatrix,  
+  
   gaussianElimination,
   gaussianEliminationWithPivot,
   lowerUpperFactorization,
   lowerUpperFactorizationWithPivot,
+  
+  
   solveFromLowerUpperMatrices,
-  printMatrix
+
+  colRange,
+  matrixTimesX
+  
+  
 
   function printMatrix(matrix) 
     n = trunc(Int, sqrt(length(matrix)))
@@ -66,91 +75,134 @@ module blocksys
       return V, n
   end
 
+  function writeVector(vector::SparseVector, filepath::String)
+    open(filepath, "w") do f
+      for n in vector
+        write(f, "$n\n")
+      end
+    end
+  end
+
+  function writeVector(vector::SparseVector, error::Float64, filepath::String)
+    open(filepath, "w") do f
+      write(f, "$error\n")
+      for n in vector
+        write(f, "$n\n")
+      end
+    end
+  end
+
+  function matrixTimesX(matrix::SparseMatrixCSC, x::SparseVector, n::Int64, l::Int64)
+    # it works
+    b = spzeros(n)
+    for row in 1:n
+      b[row] = 0.0
+      for col in colRange(row, n, l)
+        b[row] = b[row] + matrix[row, col] * x[col]
+      end
+    end
+    return b
+  end
+
+  function colRange(row::Int64, n::Int64, l::Int64)
+    minMul = trunc(Int, (row - 1) / l) - 1
+    maxMul = minMul + 3
+    min = (minMul * l + 1) > 1 ? (minMul * l + 1) : 1 
+    max = (maxMul * l) < n ? maxMul * l : n
+    return min:max
+  end
+        # if pivoting == true
+        #   max = 0
+        #   # find max
+        #   for j = k : m
+        #       # [row, col]
+        #       if abs(U[j,k]) > max
+        #           max = abs(U[j,k])
+        #           index = j
+        #       end
+        #   end
+        #   # replace max with current
+        #   for j = 1 : m
+        #       temp = U[k,j]
+        #       U[k,j] = U[index,j]
+        #       U[index,j] = temp
+        #   end
+        #   temp = b[k]
+        #   b[k] = b[index]
+        #   b[index] = temp
+        # end
   function performGaussianElimination(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64, pivoting::Bool, solve::Bool)
     # Perform gaussian elimination (zero lower  left triangle)
-    mults = zeros(n)
-    L = zeros(n, n)
+    mults = spzeros(n)
+    L = spzeros(n, n)
     U = A
     index = 0
+    # for all columns
     for k in 1:n-1
-      # consider matrix construction
-      m = k + 1 + 2 * l > n ? n : k + 1 + 2 * l
+      # for all indexes bigger than middle
       for i in k+1:n
-        if pivoting == true
-          max = 0
-          # find max
-          for j = k : m
-              if abs(U[j,k]) > max
-                  max = abs(U[j,k])
-                  index = j
-              end
-          end
-          # replace max with current
-          for j = 1 : m
-              temp = U[k,j]
-              U[k,j] = U[index,j]
-              U[index,j] = temp
-          end
-          temp = b[k]
-          b[k] = b[index]
-          b[index] = temp
+        # if middle is ~ 0, error
+        if abs(U[k, k]) < eps(Float64)
+          return A, 1
         end
+
         mults[i] = U[i, k] / U[k, k]
         L[i, k] = mults[i]
         U[i, k] = 0.0
-        for j in k+1:m
+        # printMatrix(U)
+        # forward elimination
+        # divide 
+        for j in k+1:k+1+(l * l)
           U[i, j] = U[i, j] - mults[i] * U[k, j]
         end
         b[i] = b[i] - (mults[i] * b[k])
       end     
     end
-    # calculate solutions
+    # 
     if solve
       R = backwardSubstitution(U, b, n, l)
-      return R
+      return R, 0
     else
       # return U
       for i in 1:n
         L[i, i] = 1.0
       end
-      return sparse(L), sparse(A)
+      return (L, A), 0
     end
-    
   end
 
   function gaussianElimination(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
-    X = performGaussianElimination(A, b, n, l, false, true)
-    return sparse(X)
+    X, error = performGaussianElimination(A, b, n, l, false, true)
+    return sparse(X), error
   end
   
   function gaussianEliminationWithPivot(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
-    X = performGaussianElimination(A, b, n, l, true, true)
-    return sparse(X)
+    X, error = performGaussianElimination(A, b, n, l, true, true)
+    return sparse(X), error
   end
 
   function lowerUpperFactorization(A::SparseMatrixCSC, n::Int64, l::Int64)
     b = spzeros(n)
-    L, U = performGaussianElimination(A, b, n, l, false, false)
-    printMatrix(L)
-    printMatrix(U)
-    printMatrix(L * U)
-    return L, U
+    (L, U), error = performGaussianElimination(A, b, n, l, false, false)
+    return (L, U), error
   end
 
   function lowerUpperFactorizationWithPivot(A::SparseMatrixCSC, n::Int64, l::Int64)
     b = spzeros(n)
-    L, U = performGaussianElimination(A, b, n, l, true, false)
-    return L, U
+    (L, U), error = performGaussianElimination(A, b, n, l, true, false)
+    return (L, U), error
   end
 
   function forwardSubstitution(L::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
     R = spzeros(n)
-    for i in 1:n
-      s = b[i]
-      for j in 1:i-1
-        s = s - L[i, j] * R[j]
+    for row in 1:n
+      s = b[row]
+      # for col in 1:i-1
+      # is it ok?
+      for col in colRange(row, row-1, l)
+        s = s - L[row, col] * R[col]
       end
-      R[i] = s / L[i, i]
+      R[row] = s / L[row, row]
     end
     return R
   end
@@ -158,12 +210,13 @@ module blocksys
   function backwardSubstitution(U::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64)
     # this is valid
     R = spzeros(n)
-    for i in n:-1:1
-      s = b[i]
-      for j in i+1:n
-        s = s - U[i, j] * R[j]
+    for row in n:-1:1
+      s = b[row]
+      # for col in i+1:n
+      for col in colRange(row, n, l)
+        s = s - U[row, col] * R[col]
       end
-      R[i] = s / U[i, i]
+      R[row] = s / U[row, row]
     end
     return R
   end
