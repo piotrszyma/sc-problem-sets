@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.23)  5 JAN 2018 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.23)  9 JAN 2018 21:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -769,13 +769,13 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] (./../task-
-1/task1.tex
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] (./../task/
+task1.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-./../task-1/task1.tex:18: Display math should end with $$.
+./../task/task1.tex:18: Display math should end with $$.
 <to be read again> 
                     
 l.18 $ 
@@ -783,7 +783,7 @@ l.18 $
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-./../task-1/task1.tex:18: Missing $ inserted.
+./../task/task1.tex:18: Missing $ inserted.
 <inserted text> 
                 $
 l.18 $ B_
@@ -791,7 +791,7 @@ l.18 $ B_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./../task-1/task1.tex:19: Missing $ inserted.
+./../task/task1.tex:19: Missing $ inserted.
 <inserted text> 
                 $
 l.19 \begin{bmatrix}
@@ -799,7 +799,7 @@ l.19 \begin{bmatrix}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./../task-1/task1.tex:24: Missing $ inserted.
+./../task/task1.tex:24: Missing $ inserted.
 <inserted text> 
                 $
 l.24 \end{bmatrix}
@@ -811,7 +811,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-./../task-1/task1.tex:25: LaTeX Error: Bad math environment delimiter.
+./../task/task1.tex:25: LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -823,7 +823,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./../task-1/task1.tex:25: Missing $ inserted.
+./../task/task1.tex:25: Missing $ inserted.
 <inserted text> 
                 $
 l.25 \]
@@ -834,7 +834,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./../task-1/task1.tex:25: Display math should end with $$.
+./../task/task1.tex:25: Display math should end with $$.
 <to be read again> 
                    \endgroup 
 l.25 \]
@@ -842,7 +842,7 @@ l.25 \]
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-./../task-1/task1.tex:30: Display math should end with $$.
+./../task/task1.tex:30: Display math should end with $$.
 <to be read again> 
                     
 l.30 $ 
@@ -850,7 +850,7 @@ l.30 $
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-./../task-1/task1.tex:30: Missing $ inserted.
+./../task/task1.tex:30: Missing $ inserted.
 <inserted text> 
                 $
 l.30 $ C_
@@ -858,7 +858,7 @@ l.30 $ C_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./../task-1/task1.tex:31: Missing $ inserted.
+./../task/task1.tex:31: Missing $ inserted.
 <inserted text> 
                 $
 l.31 \begin{bmatrix}
@@ -866,7 +866,7 @@ l.31 \begin{bmatrix}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./../task-1/task1.tex:38: Missing $ inserted.
+./../task/task1.tex:38: Missing $ inserted.
 <inserted text> 
                 $
 l.38   \end{bmatrix}
@@ -878,7 +878,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-./../task-1/task1.tex:39: LaTeX Error: Bad math environment delimiter.
+./../task/task1.tex:39: LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -890,7 +890,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./../task-1/task1.tex:39: Missing $ inserted.
+./../task/task1.tex:39: Missing $ inserted.
 <inserted text> 
                 $
 l.39 \]
@@ -901,7 +901,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./../task-1/task1.tex:39: Display math should end with $$.
+./../task/task1.tex:39: Display math should end with $$.
 <to be read again> 
                    \endgroup 
 l.39 \]
@@ -909,47 +909,351 @@ l.39 \]
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-) [1] (./../task-2/task2.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+[1]
+./../task/task1.tex:54: Missing $ inserted.
+<inserted text> 
+                $
+l.54 \begin{bmatrix}
+                    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task1.tex:60: Missing $ inserted.
+<inserted text> 
+                $
+l.60   \end{bmatrix}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task1.tex:67: Missing $ inserted.
+<inserted text> 
+                $
+l.67     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task1.tex:74: Missing $ inserted.
+<inserted text> 
+                $
+l.74       \end{bmatrix}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task1.tex:82: Missing $ inserted.
+<inserted text> 
+                $
+l.82     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task1.tex:89: Missing $ inserted.
+<inserted text> 
+                $
+l.89     \end{bmatrix}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 94.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)) [2]
+(./../task/task2.tex
+
+./../task/task2.tex:14: LaTeX Error: Environment nmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14   \begin{nmatrix}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./../task/task2.tex:16: LaTeX Error: \begin{center} on input line 13 ended by \
+end{nmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16   \end{nmatrix}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./../task/task2.tex:18: Missing $ inserted.
+<inserted text> 
+                $
+l.18   \begin{bmatrix}
+                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task2.tex:25: Missing $ inserted.
+<inserted text> 
+                $
+l.25     \end{bmatrix}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./../task/task2.tex:29: LaTeX Error: Environment nmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29     \begin{nmatrix}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./../task/task2.tex:31: LaTeX Error: \begin{center} on input line 28 ended by \
+end{nmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31     \end{nmatrix}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./../task/task2.tex:33: Missing $ inserted.
+<inserted text> 
+                $
+l.33     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task2.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+l.39       \end{bmatrix}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) [3] (./../task/task3.tex
+Overfull \hbox (2.2614pt too wide) in paragraph at lines 3--4
+\T1/cmr/m/n/10 W tym zada-niu nale»aªo stworzy¢ metod¦, która, dla wyz-nac-zone
+go podzi-aªu macierzy $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 LU
+$\T1/cmr/m/n/10 , zna-jdy-waªa rozwi¡zanie
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-) [2] (./../task-3/task3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+./../task/task3.tex:13: Missing $ inserted.
+<inserted text> 
+                $
+l.13   \begin{bmatrix}
+                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:20: Missing $ inserted.
+<inserted text> 
+                $
+l.20   \end{bmatrix}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task3.tex:21: Missing $ inserted.
+<inserted text> 
+                $
+l.21   \begin{bmatrix}
+                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:28: Missing $ inserted.
+<inserted text> 
+                $
+l.28   \end{bmatrix}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task3.tex:30: Missing $ inserted.
+<inserted text> 
+                $
+l.30   \begin{bmatrix}
+                      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:37: Missing $ inserted.
+<inserted text> 
+                $
+l.37   \end{bmatrix}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./../task/task3.tex:40: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40   W
+         powyÅ¼szym ukÅ‚adzie nieznane sÄ… jedynie wspÃ³Å‚czynniki $y_{i}$ w...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (15.28923pt too wide) in paragraph at lines 40--41
+\T1/cmr/m/n/10 wyliczenia $\OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = []$\T1/cmr/m/
+n/10 . Wyz-naczanie kole-jnych wspóªczyn-ników $\OML/cmm/m/it/10 y[]$ \T1/cmr/m
+/n/10 wykonu-jemy pod-staw-ia-j¡c do wzoru $\OML/cmm/m/it/10 y[] \OT1/cmr/m/n/1
+0 = []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-) [3] (./main.aux) )
+./../task/task3.tex:42: Missing $ inserted.
+<inserted text> 
+                $
+l.42     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:48: Missing $ inserted.
+<inserted text> 
+                $
+l.48     \end{bmatrix}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task3.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:56: Missing $ inserted.
+<inserted text> 
+                $
+l.56     \end{bmatrix}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./../task/task3.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58     \begin{bmatrix}
+                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./../task/task3.tex:65: Missing $ inserted.
+<inserted text> 
+                $
+l.65     \end{bmatrix}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) [4] (./main.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5298 strings out of 494946
- 71174 string characters out of 6180980
- 165038 words of memory out of 5000000
- 8482 multiletter control sequences out of 15000+600000
- 14598 words of font info for 46 fonts, out of 8000000 for 9000
+ 5328 strings out of 494946
+ 71872 string characters out of 6180980
+ 166038 words of memory out of 5000000
+ 8505 multiletter control sequences out of 15000+600000
+ 18520 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,10n,28p,426b,3773s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,28p,773b,3773s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
 r-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-
-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/s
-frm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1728
-.pfb>
-Output written on main.pdf (4 pages, 130956 bytes).
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx
+1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (5 pages, 236412 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
