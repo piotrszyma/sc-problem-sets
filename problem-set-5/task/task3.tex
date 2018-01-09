@@ -1,0 +1,67 @@
+\section{Zadanie 3}
+\subsection{Opis problemu}
+W tym zadaniu należało stworzyć metodę, która, dla wyznaczonego podziału macierzy $A = LU$, znajdywała rozwiązanie układu równań $ Ax = b$, t. $LU x = b$.
+\subsection{Analiza}
+W celu znalezienia rozwiązania równania $LU x = b$, należy rozbić obliczenia na dwa etapy, tj. wyliczanie:
+\begin{enumerate}
+  \item $ Ly = b $
+  \item $ y = Ux $
+\end{enumerate}
+\subsection{Rozwiązanie}
+Pierwszy z etapów to znalezienie $y$, tj. rozwiązanie $Ly = b$. Macierz $L$ jest w postaci trójkątnej, dlatego można w prosty sposób, wykonując na układzie $backward\;substitution$, znaleźć wektor $y$. Po odnalezieniu wektora $y$, należy rozwiązać $Ux = y$, tutaj wykonujemy $forward\;substitution$, które daje poszukiwany wektor $x$. \\
+\begin{center}
+  \begin{bmatrix}
+    a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} \\
+    0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} \\
+    0 & 0 & a_{3,3} & \dots & a_{2,n} \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \dots & a_{n-1,n} \\
+    0 & 0 & 0 & \dots & a_{n,n} \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    y_1 \\
+    y_2 \\
+    y_3 \\
+    \vdots \\
+    y_{n-1} \\
+    y_n \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    b_3 \\
+    \vdots \\
+    b_{n-1} \\
+    b_n \\
+  \end{bmatrix}
+  \end{center}
+  \\
+  W powyższym układzie nieznane są jedynie współczynniki $y_{i}$ wektora $Y$. $Backward\;substitution$ zaczynamy od wyliczenia $y_n = \frac{b_n}{a_{nn}}$. Wyznaczanie kolejnych współczynników $y_k$ wykonujemy podstawiając do wzoru $y_k = \frac{b_k - \sum_{j=k+1}^{n}{a_{kj}x_{j}}}{a_{kk}}$ - cofamy się do wcześniejszych wierszy i wyliczamy kolejne $ y_k $ korzystając z wcześniejszych wyników. \\
+  \begin{center}
+    \begin{bmatrix}
+      1 & 0 & 0 & \dots & 0 \\
+      \alpha_{2,1} & 1 & 0 & \dots & 0 \\
+      \alpha_{3,1} & \alpha_{3,2} & 1 & \dots & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      \alpha_{n-1,1} & \alpha_{n-1,2} & \alpha_{n-1,3} & \dots & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+      x_1 \\
+      x_2 \\
+      x_3 \\
+      \vdots \\
+      x_{n-1} \\
+      x_n \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      y_1 \\
+      y_2 \\
+      y_3 \\
+      \vdots \\
+      y_{n-1} \\
+      y_n \\
+    \end{bmatrix}
+    \end{center}
+W drugim etapie mamy analogiczną sytuację, choć tutaj występuje macierz trójkątna prawa górna. W tym przypadku użyjemy $forward\;substitution$. Zaczynamy od $x_1$, które jest po prostu równe $y_1$. Kolejne $x_i$ wyliczamy za pomocą:  $x_k = \frac{y_k - \sum_{j=1}^{k-1}{\alpha_{kj}x_{j}}}{\alpha_{kk}}$

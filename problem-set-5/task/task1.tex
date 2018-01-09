@@ -45,5 +45,50 @@ Należało stworzyć dwa warianty implementacji:
 \end{enumerate}
 Dodatkowym wymaganiem była złożoność algorytmu, która - po uwzględnieniu postaci macierzy - ma wynosić nie, tak jak w standardowym algortytmie eliminacji $O(n^3)$, a $O(n)$.
 \subsection{Analiza}
+Istotą metody eliminacji Gaussa są dwa etapy - pierwszy z nich to sprowadzenie macierzy do postaci schodkowej, tj. takiej, w której niezerowe komórki znajdują się jedynie powyżej komórek o indeksie wiersza i kolumny równym sobie, następny rozwiązanie odpowiadającego tej macierzy układu równań.
+\subsection{Rozwiązanie}
+\subsubsection{Bez wyboru elementu głównego}
+Pierwsza część algorytmu to manipulacja macierzą - za pomocą operacji elementarych - w celu doprowadzenia macierzy do postaci \textsc{trójkątnej górnej}. Idea tej części opiera się na: wyborze wiersza głównego, następnie mnożeniu go przez odpowiedni czynnik i dodawaniu do każdych kolejnych wierszy tak, by wiersze te w danej kolumnie zostały wyzerowane. 
+$$ W_n = W_n + \alpha W_1 $$ 
+\begin{center}
+\begin{bmatrix}
+    a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} \\
+    0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} \\
+    \vdots & \vdots & \vdots & \vdots & \vdots \\
+    0 & a_{n-1,2} & a_{2,3} & \dots & a_{n-1,n} \\
+    0 & a_{n,2} & a_{n,3} & \dots & a_{n,n} \\
+  \end{bmatrix}
+\end{center}
+W tym wypadku za wiersz główny został obrany wiersz $W_1$, a przy każdym innym wierszu współczynnik $ \alpha_n $ wynosił $ 0 = a_{i,1} - \alpha \;a_{1,1}$, tj. $ \alpha = \frac{a_{i,1}}{a_{1,1}} $
+Po wykonaniu serii działań na kolejnych postaciach macierzy
+$ A_1 \rightarrow A_2 \rightarrow \dots \rightarrow A_n $ otrzymujemy macierz trójkątną. 
 
-\subsection{Implementacja}
+\begin{center}
+    \begin{bmatrix}
+        a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} \\
+        0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} \\
+        0 & 0 & a_{3,3} & \dots & a_{2,n} \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & 0 & \dots & a_{n-1,n} \\
+        0 & 0 & 0 & \dots & a_{n,n} \\
+      \end{bmatrix}
+    \end{center}
+
+Z tej macierzy (zaczynając od ostatniego wiesza ostatnej kolumny) jesteśmy wstanie wyznaczyć szukany wektor $X$ rozwiązań równania.
+\subsubsection{Wybór elementu głównego}
+W powyższym przykładzie musimy jednak poczynić pewne dodatkowe założenie - komórki $a_{kk}$, które używamy jako dzielniki w metodzie Gaussa nie mogą być równe zero. W przeciwnym wypadku dochodziłoby do dzielenia przez zero. Mało tego, ich wartości nie mogą być bliskie zero - dlatego doprowadzenie macierzy do postaci, w której komórki $a_{kk}$ mają jak największą wartość, pozwala poprawić numeryczną dokładność. Szukam więc wiersza - spośród wierszy $W_i$ t. że $i \in (k, \ldots, n)$. Wybór spośród wierszy $i < k$ zaburzyłby strukturę, do której dążymy - tj. zerową lewą dolną macierz trójkątną.
+Będąc w tej sytuacji:
+\begin{center}
+    \begin{bmatrix}
+        a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} \\
+        0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} \\
+        0 & a_{3,2} & a_{3,3} & \dots & a_{3,n} \\
+        \vdots & \vdots & \vdots & \vdots & \vdots \\
+        0 & a_{n-1,2} & a_{2,3} & \dots & a_{n-1,n} \\
+        0 & a_{n,2} & a_{n,3} & \dots & a_{n,n} \\
+    \end{bmatrix}
+\end{center}
+Wybieramy komórkę o największej wartości spośród $a_{i, 2}$, $i \in (2, n) $, następnie zamieniamy miejscami wiersze $ W_2 $ i $ W_i $.
+\subsection{Złożoność}
+W rozpatrywanej w zadaniu macierzy, w przypadku eliminacji Gaussa, nie osiągniemy oczekiwanej liniowej złożności przy klasycznym sposobie eliminacji. Aby osiągnąć odpowiednią złożoność, do eliminacji należy wziąć jedynie niezerowe komórki, które znajdują się w blokach $ A $, $ B $ oraz $ C $, a więc zawężając - w każdej iteracji - zakres wierszy do wyzerowania kolumny do $ l $ - taka jest maksymalna rozpiętość niezerowych wartości, a zakres kolumn w danym wierszu do $ 3l $. Tym sposobem otrzymujemy złożoność $ O(n * l * 3l) $, a uwzględniając notację $O$ duże oraz fakt, że $l$ traktujemy jako stałą, dostajemy złożoność liniową.
+W celu osiągniecia odpowiedniej złożoności pamięciowej, do przechowywania macierzy zostały użyte macierze typu $\texttt{SparseMatrixCSC}$, zaimplementowane z myślą o macierzach rzadkich, pamiętające tylko elementy niezerowe.
