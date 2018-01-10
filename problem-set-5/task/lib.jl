@@ -112,6 +112,16 @@ module blocksys
     return min:max
   end
 
+  function combineRanges(upperRow::Int64, lowerRow::Int64, n::Int64, l::Int64)
+     upper = colRange(upperRow, n, l)
+     lower = colRange(lowerRow, n, l)
+     if upper[end] >= lower[1]
+      return collect(lower[1] : upper[end])
+     else
+      return vcat(collect(lower), collect(upper))
+     end
+  end
+
   function performGaussianElimination(A::SparseMatrixCSC, b::SparseVector, n::Int64, l::Int64, pivoting::Bool, solve::Bool)
     if !solve 
       pivoting = false
@@ -119,33 +129,28 @@ module blocksys
     # Perform gaussian elimination (zero lower  left triangle)
     L = spzeros(n, n)
     U = copy(A)
-    current = 0
+    maxRowIndex = 0
 
     # for all columns
     for k in 1:n-1
-      limit = k+1+2*l > n ? n : k+1+2*l
-
+      limit = k + 2 * l > n ? n : k + 2 * l
         if pivoting == true
           max = 0
           # find max
-          # for j = k : (k + 3 * l > n ? n : k + 3 * l)
           for j = k:limit
               # [row, col]
               if abs(U[j,k]) > max
                   max = abs(U[j,k])
-                  current = j
+                  maxRowIndex = j
               end
           end
-          # replace max with current
-          replaceMin = (k - 3 * l < 1 ? 1 : k - 3 * l)
-          replaceMax = (k + 3 * l > n ? n : k + 3 * l)
-          # for j = 1 : replaceMax
-          for j = 1 : limit
-              U[k, j], U[current, j] = U[current, j], U[k, j]
+          if maxRowIndex != k
+            for j = combineRanges(k, maxRowIndex, n, l)
+              U[k, j], U[maxRowIndex, j] = U[maxRowIndex, j], U[k, j]
+            end
+            b[k], b[maxRowIndex] = b[maxRowIndex], b[k]
           end
-          b[k], b[current] = b[current], b[k]
         end
-
         if abs(U[k, k]) < eps(Float64)
           val = U[k, k]
           println("Error: U[$k, $k] = $val < eps(Float64)!")

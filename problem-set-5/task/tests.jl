@@ -23,10 +23,11 @@ function testGaussianEliminationWithoutPivoting()
   end
 end
 function testGaussianEliminationWithPivot()
-  M, n, l = readMatrix("./../input/16/A.txt")
-  V, n = readVector("./../input/16/b.txt")
+  M, n, l = readMatrix("./../input/50000/A.txt")
+  V, n = readVector("./../input/50000/b.txt")
   result, error = gaussianEliminationWithPivot(M, V, n, l)
   expected = ones(n)
+  println(result)
   for i in 1:length(expected)
     @test expected[i] ≈ result[i]    
   end
@@ -48,8 +49,8 @@ function testGaussianElimination()
 end
 
 function testLowerUpperFactorizationWithPivot() 
-  M, n, l = readMatrix("./../input/16/A.txt")
-  V, n = readVector("./../input/16/b.txt")
+  M, n, l = readMatrix("./../input/50000/A.txt")
+  V, n = readVector("./../input/50000/b.txt")
   (L, U), error = lowerUpperFactorizationWithPivot(M, n, l)
 end
 
@@ -93,9 +94,9 @@ end
 
 # testShouldReadMatrixAndEvalVector()
 # testGaussianEliminationWithoutPivoting()
-# testGaussianEliminationWithPivot()
+testGaussianEliminationWithPivot()
 # testGaussianElimination()
 # testGaussianEliminationShouldThrowError()
 # testLowerUpperFactorizationWithPivot();
 # testLowerUpperFactorization();
-testResultOfLU()
+# testResultOfLU()
