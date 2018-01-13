@@ -75,19 +75,19 @@ module blocksys
       return V, n
   end
 
-  function writeVector(vector::Array{Float64}, filepath::String)
+  function writeVector(vector::SparseVector, filepath::String)
     open(filepath, "w") do f
       for n in vector
-        @printf(f, "%0.10f\n", n)
+        @printf(f, "%0.15f\n", n)
       end
     end
   end
 
-  function writeVector(vector::Array{Float64}, error::Float64, filepath::String)
+  function writeVector(vector::SparseVector, error::Float64, filepath::String)
     open(filepath, "w") do f
       write(f, "$error\n")
       for n in vector
-        @printf(f, "%0.10f\n", n)
+        @printf(f, "%0.15f\n", n)
       end
     end
   end

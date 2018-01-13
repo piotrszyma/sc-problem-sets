@@ -11,13 +11,13 @@ function testReadMatrixAndVectorSolveAndWriteToFile()
   x, error = gaussianElimination(M, V, n, l)
   x1 = ones(n)
   err = norm(x - x1) / norm(x)
-  writeVector(x1, "./../input/16/sol.txt")
-  writeVector(x1, err, "./../input/16/sol_err.txt")
+  writeVector(x, "./../input/16/sol.txt")
+  writeVector(x, err, "./../input/16/sol_err.txt")
   x, error = gaussianEliminationWithPivot(M, V, n, l)
   x1 = ones(n)
   err = norm(x - x1) / norm(x)
-  writeVector(x1, "./../input/16/sol_pivot.txt")
-  writeVector(x1, err, "./../input/16/sol_pivot_err.txt")
+  writeVector(x, "./../input/16/sol_pivot.txt")
+  writeVector(x, err, "./../input/16/sol_pivot_err.txt")
 end
 
 function testGenerateLUFactAndMult()
@@ -35,5 +35,5 @@ function testGenerateLUFactAndMult()
   end
 
 end
-# testReadMatrixAndVectorSolveAndWriteToFile()
-testGenerateLUFactAndMult()
+testReadMatrixAndVectorSolveAndWriteToFile()
+# testGenerateLUFactAndMult()

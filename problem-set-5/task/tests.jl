@@ -27,7 +27,6 @@ function testGaussianEliminationWithPivot()
   V, n = readVector("./../input/50000/b.txt")
   result, error = gaussianEliminationWithPivot(M, V, n, l)
   expected = ones(n)
-  println(result)
   for i in 1:length(expected)
     @test expected[i] ≈ result[i]    
   end
